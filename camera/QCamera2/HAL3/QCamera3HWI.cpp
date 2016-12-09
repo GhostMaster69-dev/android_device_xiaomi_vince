@@ -11811,7 +11811,6 @@ void QCamera3HardwareInterface::setPAAFSupport(
     switch (filter_arrangement) {
     case CAM_FILTER_ARRANGEMENT_Y:
         if ((stream_type == CAM_STREAM_TYPE_PREVIEW) ||
-                (stream_type == CAM_STREAM_TYPE_ANALYSIS) ||
                 (stream_type == CAM_STREAM_TYPE_VIDEO)) {
             feature_mask |= CAM_QCOM_FEATURE_PAAF;
         }

@@ -69,6 +69,9 @@ on post-fs
     start vendor.configstore-hal
     start vendor.qti.hardware.display.allocator
 
+    # Disable sched autogroup
+    write /proc/sys/kernel/sched_autogroup_enabled 0
+
 on early-boot
     # Allow subsystem (modem etc) debugging
     write /sys/kernel/boot_adsp/boot 1

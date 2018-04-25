@@ -17,6 +17,7 @@ type netmgr_data_file, file_type, data_file_type;
 type proc_swap, fs_type;
 
 # Power
+type proc_sysctl_autogroup, proc_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 
 # Rild

@@ -2,3 +2,5 @@
 # product.prop for vince
 #
 
+# Google Assistant
+ro.opa.eligible_device=true

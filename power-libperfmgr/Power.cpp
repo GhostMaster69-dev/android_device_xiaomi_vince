@@ -34,6 +34,10 @@
 #include "PowerHintSession.h"
 #include "PowerSessionManager.h"
 
+#ifndef TAP_TO_WAKE_NODE2
+#define TAP_TO_WAKE_NODE2 "/proc/tp_wakeup_switch"
+#endif
+
 namespace aidl {
 namespace google {
 namespace hardware {
@@ -105,11 +109,10 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
     }
 #endif
     switch (type) {
-#ifdef TAP_TO_WAKE_NODE
         case Mode::DOUBLE_TAP_TO_WAKE:
             ::android::base::WriteStringToFile(enabled ? "1" : "0", TAP_TO_WAKE_NODE, true);
+            ::android::base::WriteStringToFile(enabled ? "1" : "0", TAP_TO_WAKE_NODE2, true);
             break;
-#endif
         case Mode::SUSTAINED_PERFORMANCE:
             if (enabled) {
                 endAllHints(mHintManager);

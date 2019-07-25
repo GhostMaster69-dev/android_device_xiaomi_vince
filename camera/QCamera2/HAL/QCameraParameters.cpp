@@ -491,6 +491,9 @@ const char QCameraParameters::KEY_QC_NOISE_REDUCTION_MODE_VALUES[] = "noise-redu
 const char QCameraParameters::KEY_TS_MAKEUP[] = "tsmakeup";
 const char QCameraParameters::KEY_TS_MAKEUP_WHITEN[] = "tsmakeup_whiten";
 const char QCameraParameters::KEY_TS_MAKEUP_CLEAN[] = "tsmakeup_clean";
+const char QCameraParameters::KEY_XM_MAKEUP[] = "xiaomi-still-beautify-values";
+const char QCameraParameters::KEY_XM_MAKEUP_WHITEN[] = "xiaomi-beauty-skin-color";
+const char QCameraParameters::KEY_XM_MAKEUP_CLEAN[] = "xiaomi-beauty-skin-smooth";
 #endif
 
 //KEY to share HFR batch size with video encoder.
@@ -4183,6 +4186,60 @@ int32_t QCameraParameters::setTsMakeup(const QCameraParameters& params)
     return NO_ERROR;
 }
 
+/*===========================================================================
+ * FUNCTION   : setXmMakeup
+ *
+ * DESCRIPTION: set setXmMakeup from user setting
+ *
+ * PARAMETERS :
+ *   @params  : user setting parameters
+ *
+ * RETURN     : int32_t type of status
+ *              NO_ERROR  -- success
+ *              none-zero failure code
+ *==========================================================================*/
+int32_t QCameraParameters::setXmMakeup(const QCameraParameters& params)
+{
+    const char *str = params.get(KEY_XM_MAKEUP);
+    const char *prev_str = get(KEY_XM_MAKEUP);
+
+    LOGH("str =%s & prev_str =%s", str, prev_str);
+
+    if (str != NULL) {
+        if (prev_str == NULL) {
+            m_bNeedRestart = true;
+            set(KEY_XM_MAKEUP, str);
+        } else if (strcmp(str, prev_str) != 0) {
+            const char* prev_enabled = strrchr(prev_str, ':');
+            const char* curr_enabled = strrchr(str, ':');
+            if (prev_enabled && curr_enabled) {
+                prev_enabled++;
+                curr_enabled++;
+                m_bNeedRestart = (atoi(prev_enabled) > 0 != atoi(curr_enabled) > 0) ?
+                        true : m_bNeedRestart;
+            }
+            set(KEY_XM_MAKEUP, str);
+        }
+
+        str = params.get(KEY_XM_MAKEUP_WHITEN);
+        prev_str = get(KEY_XM_MAKEUP_WHITEN);
+        if (str != NULL) {
+            if (prev_str == NULL || strcmp(str, prev_str) != 0) {
+                set(KEY_XM_MAKEUP_WHITEN, str);
+            }
+        }
+
+        str = params.get(KEY_XM_MAKEUP_CLEAN);
+        prev_str = get(KEY_XM_MAKEUP_CLEAN);
+        if (str != NULL) {
+            if (prev_str == NULL || strcmp(str, prev_str) != 0) {
+                set(KEY_XM_MAKEUP_CLEAN, str);
+            }
+        }
+    }
+
+    return NO_ERROR;
+}
 #endif
 
 /*===========================================================================
@@ -5302,6 +5359,7 @@ int32_t QCameraParameters::updateParameters(const String8& p,
     if ((rc = updateFlash(false)))                      final_rc = rc;
 #ifdef TARGET_TS_MAKEUP
     if ((rc = setTsMakeup(params)))                     final_rc = rc;
+    if ((rc = setXmMakeup(params)))                     final_rc = rc;
 #endif
     if ((rc = setAdvancedCaptureMode()))                final_rc = rc;
 UPDATE_PARAM_DONE:
@@ -5648,7 +5706,7 @@ int32_t QCameraParameters::initDefaultParameters()
             AUTO_EXPOSURE_MAP,
             PARAM_MAP_SIZE(AUTO_EXPOSURE_MAP));
     set(KEY_QC_SUPPORTED_AUTO_EXPOSURE, autoExposureValues.string());
-    setAutoExposure(AUTO_EXPOSURE_FRAME_AVG);
+    setAutoExposure(AUTO_EXPOSURE_CENTER_WEIGHTED);
 
     // Set Exposure Compensation
     set(KEY_MAX_EXPOSURE_COMPENSATION, m_pCapability->exposure_compensation_max); // 12
@@ -5680,7 +5738,7 @@ int32_t QCameraParameters::initDefaultParameters()
             ANTIBANDING_MODES_MAP,
             PARAM_MAP_SIZE(ANTIBANDING_MODES_MAP));
     set(KEY_SUPPORTED_ANTIBANDING, antibandingValues);
-    setAntibanding(ANTIBANDING_OFF);
+    setAntibanding(ANTIBANDING_AUTO);
 
     // Set Effect
     String8 effectValues = createValuesString(
@@ -10518,15 +10576,29 @@ char* QCameraParameters::getParameters()
 bool QCameraParameters::getTsMakeupInfo(int &whiteLevel, int &cleanLevel) const
 {
     const char* pch_makeup_enable = get(QCameraParameters::KEY_TS_MAKEUP);
-    if (pch_makeup_enable == NULL) {
-        LOGH("pch_makeup_enable = null");
-        return false;
-    }
-    bool enableMakeup =
-            (strcmp(pch_makeup_enable,"On") == 0);
-    if (enableMakeup) {
-        whiteLevel = getInt(QCameraParameters::KEY_TS_MAKEUP_WHITEN);
-        cleanLevel = getInt(QCameraParameters::KEY_TS_MAKEUP_CLEAN);
+    bool enableMakeup = false;
+    if (pch_makeup_enable != NULL) {
+        enableMakeup =
+                (strcmp(pch_makeup_enable,"On") == 0);
+        if (enableMakeup) {
+            whiteLevel = getInt(QCameraParameters::KEY_TS_MAKEUP_WHITEN);
+            cleanLevel = getInt(QCameraParameters::KEY_TS_MAKEUP_CLEAN);
+        }
+    } else {
+        pch_makeup_enable = get(QCameraParameters::KEY_XM_MAKEUP);
+        if (pch_makeup_enable != NULL) {
+            const char* xm_makeup_enable = strrchr(pch_makeup_enable, ':');
+            if (xm_makeup_enable == NULL) {
+                return false;
+            }
+            xm_makeup_enable++;
+            enableMakeup = atoi(xm_makeup_enable) > 0;
+            LOGD("Xiaomi makeup enable %d", (int)enableMakeup);
+            if (enableMakeup) {
+                whiteLevel = getInt(QCameraParameters::KEY_XM_MAKEUP_WHITEN) * 10;
+                cleanLevel = getInt(QCameraParameters::KEY_XM_MAKEUP_CLEAN) * 10;
+            }
+        }
     }
     return enableMakeup;
 }

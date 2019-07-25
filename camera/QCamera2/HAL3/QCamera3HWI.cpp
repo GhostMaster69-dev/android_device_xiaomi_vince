@@ -1690,8 +1690,8 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
         return -EINVAL;
     }
     /* Check whether we have zsl stream or 4k video case */
-    if (isZsl && m_bIsVideo) {
-        LOGE("Currently invalid configuration ZSL&Video!");
+    if (isZsl && m_bIs4KVideo) {
+        LOGE("Currently invalid configuration ZSL & 4K Video!");
         pthread_mutex_unlock(&mMutex);
         return -EINVAL;
     }
@@ -3328,8 +3328,8 @@ void QCamera3HardwareInterface::restoreHdrScene(
 void QCamera3HardwareInterface::hdrPlusPerfLock(
         mm_camera_super_buf_t *metadata_buf)
 {
-    if (NULL == metadata_buf) {
-        LOGE("metadata_buf is NULL");
+    if ((NULL == metadata_buf) || (ERROR == mState)) {
+        LOGE("metadata_buf is NULL or return when mState is error");
         return;
     }
     metadata_buffer_t *metadata =
@@ -5378,8 +5378,8 @@ void QCamera3HardwareInterface::captureResultCb(mm_camera_super_buf_t *metadata_
             handleBatchMetadata(metadata_buf,
                     true /* free_and_bufdone_meta_buf */);
         } else { /* mBatchSize = 0 */
-            hdrPlusPerfLock(metadata_buf);
             pthread_mutex_lock(&mMutex);
+            hdrPlusPerfLock(metadata_buf);
             handleMetadataWithLock(metadata_buf,
                     true /* free_and_bufdone_meta_buf */,
                     false /* first frame of batch metadata */ );

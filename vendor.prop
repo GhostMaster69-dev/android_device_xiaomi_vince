@@ -125,6 +125,7 @@ media.stagefright.thumbnail.prefer_hw_codecs=true
 vendor.vidc.disable.split.mode=1
 
 # Perf
+ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf.scroll_opt=true
 
 # Radio

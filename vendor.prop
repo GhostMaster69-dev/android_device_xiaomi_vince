@@ -186,8 +186,6 @@ ro.surface_flinger.set_touch_timer_ms=100
 ro.surface_flinger.set_display_power_timer_ms=1000
 ro.surface_flinger.start_graphics_allocator_service=true
 ro.surface_flinger.support_kernel_idle_timer=true
-ro.surface_flinger.vsync_event_phase_offset_ns=1000000
-ro.surface_flinger.vsync_sf_event_phase_offset_ns=1000000
 
 # System
 persist.sys.binary_xml=false

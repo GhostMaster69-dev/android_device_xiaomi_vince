@@ -174,6 +174,10 @@ ndk::ScopedAStatus Power::isModeSupported(Mode type, bool *_aidl_return) {
         supported = true;
     }
 #endif
+    // LOW_POWER handled insides PowerHAL specifically
+    if (type == Mode::LOW_POWER) {
+        supported = true;
+    }
     LOG(INFO) << "Power mode " << toString(type) << " isModeSupported: " << supported;
     *_aidl_return = supported;
     return ndk::ScopedAStatus::ok();

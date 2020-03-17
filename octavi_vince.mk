@@ -43,10 +43,6 @@ USE_PIXEL_CHARGER := true
 # Build Status
 OCTAVI_BUILD_TYPE := Official
 
-# Exclude features that are not available on AOSP devices.
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/aosp_excluded_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/aosp_excluded_hardware.xml
-
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := xiaomi
 PRODUCT_DEVICE := vince

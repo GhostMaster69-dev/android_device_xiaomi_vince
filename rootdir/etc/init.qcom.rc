@@ -34,6 +34,10 @@ on early-init
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
 
+    # Tracefs
+    mount tracefs tracefs /sys/kernel/tracing
+    chmod 0755 /sys/kernel/tracing
+
     # Boost schedtune
     write /dev/stune/schedtune.boost 50
     write /dev/stune/schedtune.prefer_idle 1

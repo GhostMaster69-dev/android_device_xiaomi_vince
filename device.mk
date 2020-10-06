@@ -175,9 +175,9 @@ PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     GrapheneCamera
 
-# Configstore
+# Disable configstore
 PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-service
+    disable_configstore
 
 # Display
 PRODUCT_PACKAGES += \

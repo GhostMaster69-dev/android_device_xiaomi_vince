@@ -38,9 +38,6 @@ vidc.enc.dcvs.extra-buff-count=2
 ro.charger.disable_init_blank=true
 ro.charger.enable_suspend=true
 
-# Console
-persist.vendor.console.silent.config=1
-
 # Data
 ro.vendor.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true

@@ -430,11 +430,6 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
-# RCS
-PRODUCT_PACKAGES += \
-    PresencePolling \
-    RcsService
-
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor:64 \

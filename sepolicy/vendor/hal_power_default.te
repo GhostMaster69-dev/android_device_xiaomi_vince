@@ -5,6 +5,8 @@ allow hal_power_default proc_touchpanel:file rw_file_perms;
 # Allow writing to files in sysfs
 allow hal_power_default sysfs:file rw_file_perms;
 
+allow hal_power_default cgroup:file r_file_perms;
+
 allow hal_power_default sysfs_battery_saver:dir r_dir_perms;
 allow hal_power_default sysfs_battery_saver:file rw_file_perms;
 allow hal_power_default sysfs_kgsl:dir r_dir_perms;

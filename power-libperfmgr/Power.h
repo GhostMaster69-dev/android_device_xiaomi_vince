@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,80 +14,47 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_HARDWARE_POWER_V1_3_POWER_H
-#define ANDROID_HARDWARE_POWER_V1_3_POWER_H
+#pragma once
 
 #include <atomic>
+#include <memory>
 #include <thread>
 
-#include <android/hardware/power/1.3/IPower.h>
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
+#include <aidl/android/hardware/power/BnPower.h>
 #include <perfmgr/HintManager.h>
 
 #include "InteractionHandler.h"
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace power {
-namespace V1_3 {
-namespace implementation {
+namespace impl {
+namespace pixel {
 
-using ::android::hardware::power::V1_0::Feature;
-using ::android::hardware::power::V1_3::IPower;
-using ::android::hardware::Return;
-using ::android::hardware::Void;
 using ::InteractionHandler;
-using PowerHint_1_0 = ::android::hardware::power::V1_0::PowerHint;
-using PowerHint_1_2 = ::android::hardware::power::V1_2::PowerHint;
-using PowerHint_1_3 = ::android::hardware::power::V1_3::PowerHint;
 using ::android::perfmgr::HintManager;
 
-constexpr char kPowerHalStateProp[] = "vendor.powerhal.state";
-constexpr char kPowerHalAudioProp[] = "vendor.powerhal.audio";
-constexpr char kPowerHalInitProp[] = "vendor.powerhal.init";
-constexpr char kPowerHalRenderingProp[] = "vendor.powerhal.rendering";
-constexpr char kPowerHalConfigPath[] = "/vendor/etc/powerhint.json";
-
-struct Power : public IPower {
-    // Methods from ::android::hardware::power::V1_0::IPower follow.
-
+class Power : public BnPower {
+  public:
     Power();
+    ndk::ScopedAStatus setMode(Mode type, bool enabled) override;
+    ndk::ScopedAStatus isModeSupported(Mode type, bool *_aidl_return) override;
+    ndk::ScopedAStatus setBoost(Boost type, int32_t durationMs) override;
+    ndk::ScopedAStatus isBoostSupported(Boost type, bool *_aidl_return) override;
+    binder_status_t dump(int fd, const char **args, uint32_t numArgs) override;
 
-    Return<void> setInteractive(bool /* interactive */) override;
-    Return<void> powerHint(PowerHint_1_0 hint, int32_t data) override;
-    Return<void> setFeature(Feature feature, bool activate) override;
-    Return<void> getPlatformLowPowerStats(getPlatformLowPowerStats_cb _hidl_cb) override;
-
-    // Methods from ::android::hardware::power::V1_1::IPower follow.
-    Return<void> getSubsystemLowPowerStats(getSubsystemLowPowerStats_cb _hidl_cb) override;
-    Return<void> powerHintAsync(PowerHint_1_0 hint, int32_t data) override;
-
-    // Methods from ::android::hardware::power::V1_2::IPower follow.
-    Return<void> powerHintAsync_1_2(PowerHint_1_2 hint, int32_t data) override;
-
-    // Methods from ::android::hardware::power::V1_3::IPower follow.
-    Return<void> powerHintAsync_1_3(PowerHint_1_3 hint, int32_t data) override;
-
-    // Methods from ::android::hidl::base::V1_0::IBase follow.
-    Return<void> debug(const hidl_handle& fd, const hidl_vec<hidl_string>& args) override;
-
- private:
-    static bool isSupportedGovernor();
-
+  private:
     std::shared_ptr<HintManager> mHintManager;
     std::unique_ptr<InteractionHandler> mInteractionHandler;
     std::atomic<bool> mVRModeOn;
     std::atomic<bool> mSustainedPerfModeOn;
-    std::atomic<bool> mCameraStreamingModeOn;
     std::atomic<bool> mReady;
-    std::thread mInitThread;
 };
 
-}  // namespace implementation
-}  // namespace V1_3
+}  // namespace pixel
+}  // namespace impl
 }  // namespace power
 }  // namespace hardware
 }  // namespace android
-
-#endif  // ANDROID_HARDWARE_POWER_V1_3_POWER_H
+}  // namespace aidl

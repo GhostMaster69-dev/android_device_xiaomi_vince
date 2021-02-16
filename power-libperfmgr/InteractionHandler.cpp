@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-//#define LOG_NDEBUG 0
-
-#define LOG_TAG "android.hardware.power@1.3-service.vince-libperfmgr"
 #define ATRACE_TAG (ATRACE_TAG_POWER | ATRACE_TAG_HAL)
+#define LOG_TAG "android.hardware.power-service.vince-libperfmgr"
 
 #include <fcntl.h>
 #include <poll.h>
@@ -26,6 +24,7 @@
 #include <unistd.h>
 #include <utils/Log.h>
 #include <utils/Trace.h>
+#include <memory>
 
 #include "InteractionHandler.h"
 
@@ -34,17 +33,16 @@
 #define MSINSEC 1000L
 #define USINMS 1000000L
 
-static const std::vector<std::string> fb_idle_patch = {"/sys/class/drm/card0/device/idle_state",
+static const std::vector<std::string> fb_idle_path = {"/sys/class/drm/card0/device/idle_state",
                                                        "/sys/class/graphics/fb0/idle_state"};
 
-InteractionHandler::InteractionHandler(std::shared_ptr<HintManager> const & hint_manager)
+InteractionHandler::InteractionHandler(std::shared_ptr<HintManager> const &hint_manager)
     : mState(INTERACTION_STATE_UNINITIALIZED),
       mWaitMs(100),
       mMinDurationMs(1400),
       mMaxDurationMs(5650),
       mDurationMs(0),
-      mHintManager(hint_manager) {
-}
+      mHintManager(hint_manager) {}
 
 InteractionHandler::~InteractionHandler() {
     Exit();
@@ -52,7 +50,7 @@ InteractionHandler::~InteractionHandler() {
 
 static int fb_idle_open(void) {
     int fd;
-    for (auto &path : fb_idle_patch) {
+    for (auto &path : fb_idle_path) {
         fd = open(path.c_str(), O_RDONLY);
         if (fd >= 0)
             return fd;
@@ -80,8 +78,7 @@ bool InteractionHandler::Init() {
     }
 
     mState = INTERACTION_STATE_IDLE;
-    mThread = std::unique_ptr<std::thread>(
-        new std::thread(&InteractionHandler::Routine, this));
+    mThread = std::unique_ptr<std::thread>(new std::thread(&InteractionHandler::Routine, this));
 
     return true;
 }
@@ -118,9 +115,8 @@ void InteractionHandler::PerfRel() {
     ATRACE_INT("interaction_lock", 0);
 }
 
-long long InteractionHandler::CalcTimespecDiffMs(struct timespec start,
-                                               struct timespec end) {
-    long long diff_in_us = 0;
+size_t InteractionHandler::CalcTimespecDiffMs(struct timespec start, struct timespec end) {
+    size_t diff_in_us = 0;
     diff_in_us += (end.tv_sec - start.tv_sec) * MSINSEC;
     diff_in_us += (end.tv_nsec - start.tv_nsec) / USINMS;
     return diff_in_us;
@@ -147,19 +143,19 @@ void InteractionHandler::Acquire(int32_t duration) {
     struct timespec cur_timespec;
     clock_gettime(CLOCK_MONOTONIC, &cur_timespec);
     if (mState != INTERACTION_STATE_IDLE && finalDuration <= mDurationMs) {
-        long long elapsed_time = CalcTimespecDiffMs(mLastTimespec, cur_timespec);
+        size_t elapsed_time = CalcTimespecDiffMs(mLastTimespec, cur_timespec);
         // don't hint if previous hint's duration covers this hint's duration
         if (elapsed_time <= (mDurationMs - finalDuration)) {
-            ALOGV("%s: Previous duration (%d) cover this (%d) elapsed: %lld",
-                  __func__, mDurationMs, finalDuration, elapsed_time);
+            ALOGV("%s: Previous duration (%d) cover this (%d) elapsed: %lld", __func__,
+                  static_cast<int>(mDurationMs), static_cast<int>(finalDuration),
+                  static_cast<long long>(elapsed_time));
             return;
         }
     }
     mLastTimespec = cur_timespec;
     mDurationMs = finalDuration;
 
-    ALOGV("%s: input: %d final duration: %d", __func__,
-          duration, finalDuration);
+    ALOGV("%s: input: %d final duration: %d", __func__, duration, finalDuration);
 
     if (mState == INTERACTION_STATE_WAITING)
         AbortWaitLocked();
@@ -181,8 +177,7 @@ void InteractionHandler::Release() {
         uint64_t val;
         ssize_t ret = read(mEventFd, &val, sizeof(val));
 
-        ALOGW_IF(ret < 0, "%s: failed to clear eventfd (%zd, %d)",
-                 __func__, ret, errno);
+        ALOGW_IF(ret < 0, "%s: failed to clear eventfd (%zd, %d)", __func__, ret, errno);
     }
 }
 

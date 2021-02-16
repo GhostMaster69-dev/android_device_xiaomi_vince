@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,46 +14,27 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power@1.3-service.vince-libperfmgr"
-
-#include <android/log.h>
-#include <hidl/HidlTransportSupport.h>
+#define LOG_TAG "android.hardware.power-service.vince-libperfmgr"
 
 #include "Power.h"
 
-using android::sp;
-using android::status_t;
-using android::OK;
+#include <android-base/logging.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
 
-// libhwbinder:
-using android::hardware::configureRpcThreadpool;
-using android::hardware::joinRpcThreadpool;
+using aidl::android::hardware::power::impl::pixel::Power;
 
-// Generated HIDL files
-using android::hardware::power::V1_3::IPower;
-using android::hardware::power::V1_3::implementation::Power;
+int main() {
+    LOG(INFO) << "Power HAL AIDL Service is starting.";
+    ABinderProcess_setThreadPoolMaxThreadCount(0);
+    std::shared_ptr<Power> pw = ndk::SharedRefBase::make<Power>();
 
-int main(int /* argc */, char** /* argv */) {
-    ALOGI("Power HAL Service 1.3 is starting.");
+    const std::string instance = std::string() + Power::descriptor + "/default";
+    binder_status_t status = AServiceManager_addService(pw->asBinder().get(), instance.c_str());
+    CHECK(status == STATUS_OK);
+    LOG(INFO) << "Power HAL AIDL Service is started.";
 
-    android::sp<IPower> service = new Power();
-    if (service == nullptr) {
-        ALOGE("Can not create an instance of Power HAL Iface, exiting.");
-        return 1;
-    }
-
-    configureRpcThreadpool(1, true /*callerWillJoin*/);
-
-    status_t status = service->registerAsService();
-    if (status != OK) {
-        ALOGE("Could not register service for Power HAL Iface (%d), exiting.", status);
-        return 1;
-    }
-
-    ALOGI("Power Service is ready");
-    joinRpcThreadpool();
-
-    // In normal operation, we don't expect the thread pool to exit
-    ALOGE("Power Service is shutting down");
-    return 1;
+    ABinderProcess_joinThreadPool();
+    LOG(ERROR) << "Power HAL AIDL Service died.";
+    return EXIT_FAILURE;  // should not reach
 }

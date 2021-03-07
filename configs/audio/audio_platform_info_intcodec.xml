@@ -84,6 +84,7 @@
         <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="2069"/>
         <device name="SND_DEVICE_IN_VOICE_DMIC" acdb_id="277"/>
         <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC" acdb_id="293"/>
+        <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS" acdb_id="293"/>
         <device name="SND_DEVICE_IN_VOICE_RX" acdb_id="357"/>
         <device name="SND_DEVICE_IN_VOICE_REC_MIC" acdb_id="4"/>
         <device name="SND_DEVICE_IN_CAPTURE_FM" acdb_id="0"/>

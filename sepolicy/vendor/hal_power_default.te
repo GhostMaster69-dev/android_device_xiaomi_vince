@@ -1,3 +1,5 @@
+typeattribute hal_power_default mlstrustedsubject;
+
 # Allow writing to files in /proc/touchpanel
 allow hal_power_default proc_touchpanel:dir search;
 allow hal_power_default proc_touchpanel:file rw_file_perms;
@@ -29,3 +31,7 @@ allow hal_power_default sysfs_kgsl:lnk_file r_file_perms;
 set_prop(hal_power_default, vendor_power_prop)
 
 allow hal_power_default proc:{ file lnk_file } rw_file_perms;
+
+# Set scheduling info for apps (for adpf)
+allow hal_power_default appdomain:process { getsched setsched };
+allow hal_power_default self:capability sys_nice;

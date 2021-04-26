@@ -79,7 +79,6 @@ function blob_fixup() {
 
 }
 
-
 # Camera configs
 sed -i "s|/system/etc/camera|/vendor/etc/camera|g" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_sensor_modules.so
 
@@ -95,11 +94,10 @@ done
 sed -i "s|persist.camera.debug.logfile|persist.vendor.camera.dbglog|g" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_dbg.so
 
 # Camera VNDK support
-patchelf --remove-needed "libandroid.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
-patchelf --remove-needed "libgui.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
+"${PATCHELF}" --remove-needed "libandroid.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
+"${PATCHELF}" --remove-needed "libgui.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
 sed -i "s|libandroid.so|libcamshim.so|g" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
-#patchelf --remove-needed "libgui.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_ppeiscore.so
-patchelf --remove-needed "libandroid.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmpbase.so
+"${PATCHELF}" --remove-needed "libandroid.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmpbase.so
 
 # Gnss
 sed -i -e '$a\\    capabilities NET_BIND_SERVICE' "${DEVICE_BLOB_ROOT}"/vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc

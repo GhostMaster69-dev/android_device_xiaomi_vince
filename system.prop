@@ -57,7 +57,6 @@ dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
 persist.hwc.ptor.enable=true
-renderthread.skia.reduceopstasksplitting=true
 ro.qualcomm.cabl=2
 vendor.display.disable_scaler=1
 vendor.display.disable_skip_validate=1

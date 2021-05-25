@@ -856,9 +856,6 @@ function configure_zram_parameters() {
         if [ -e /sys/kernel/slab/zspage ]; then
             echo 0 > /sys/kernel/slab/zspage/store_user
         fi
-
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
     fi
 }
 

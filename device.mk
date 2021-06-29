@@ -90,11 +90,6 @@ PRODUCT_PACKAGES += \
     AntHalService \
     libantradio
 
-# Apex
-PRODUCT_COMPRESSED_APEX := false
-PRODUCT_VENDOR_PROPERTIES := ro.apex.updatable=true
-PRODUCT_PACKAGES += com.android.apex.cts.shim.v1_prebuilt
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl:32 \

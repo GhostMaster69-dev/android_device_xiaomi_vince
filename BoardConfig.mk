@@ -68,8 +68,8 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := AR=llvm-ar AS=llvm-as NM=llvm-nm LD=ld.lld OBJ
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
-# APEX Non-Flatten Updates
-TARGET_FLATTEN_APEX := false
+# Apex
+TARGET_FLATTEN_APEX := true
 
 # Audio
 USE_DEVICE_SPECIFIC_AUDIO := true

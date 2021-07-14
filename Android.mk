@@ -41,7 +41,14 @@ $(WCNSS_DAT_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	      @rm -rf $@
 	      $(hide) ln -sf /mnt/vendor/persist/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_BIN_SYMLINK) $(WCNSS_DAT_SYMLINK)
+WCNSS_MAC_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/wlan_mac.bin
+$(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+		@echo "WCNSS MAC bin link: $@"
+		@mkdir -p $(dir $@)
+		@rm -rf $@
+		$(hide) ln -sf /mnt/vendor/persist/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_BIN_SYMLINK) $(WCNSS_DAT_SYMLINK) $(WCNSS_MAC_SYMLINK)
 
 # A/B builds require us to create the mount points at compile time.
 # Just creating it for all cases since it does not hurt.

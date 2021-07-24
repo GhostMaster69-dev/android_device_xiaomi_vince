@@ -226,6 +226,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.1.vendor \
     android.hardware.drm@1.0.vendor
 
+# Google Photos
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     fakelogprint \

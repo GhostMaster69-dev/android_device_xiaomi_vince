@@ -458,6 +458,11 @@
          provisioning, availability etc -->
     <bool name="config_carrier_wfc_ims_available">true</bool>
 
+    <!-- An integer representing a timeout value in milliseconds that will be used to delay a
+	 radio power off command until IMS deregistration completes. If 0, this feature is disabled
+         and there will be no delay. -->
+    <integer name="config_delay_for_ims_dereg_millis">3000</integer>
+
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
 

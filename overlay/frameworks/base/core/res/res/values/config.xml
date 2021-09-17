@@ -617,4 +617,8 @@
 
     <!-- Whether to cancel fingerprint operation if not idle -->
     <bool name="config_fpCancelIfNotIdle">true</bool>
+
+    <!-- If true, the screen can be rotated via the accelerometer in all 4
+    rotations as the default behavior. -->
+    <bool name="config_allowAllRotations">true</bool>
 </resources>

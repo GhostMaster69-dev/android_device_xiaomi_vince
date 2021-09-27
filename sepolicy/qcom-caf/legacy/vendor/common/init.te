@@ -92,6 +92,7 @@ allow init {
 allow init mnt_vendor_file:lnk_file r_file_perms;
 
 allow init firmware_file:filesystem getattr;
+allow init bt_firmware_file:filesystem getattr;
 allow init proc:file w_file_perms;
 
 allow init socket_device:sock_file { unlink setattr create };

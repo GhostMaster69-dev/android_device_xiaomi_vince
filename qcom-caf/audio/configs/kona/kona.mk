@@ -469,7 +469,7 @@ PRODUCT_PACKAGES_DEBUG += \
     libaudiodevarb
 endif
 
-ifeq ($(call is-vendor-board-platform,QCOM),true)
+ifneq (,$(call is-vendor-board-qcom))
 ifeq ($(call is-platform-sdk-version-at-least,28),true)
 PRODUCT_PACKAGES_DEBUG += \
     libqti_resampler_headers \

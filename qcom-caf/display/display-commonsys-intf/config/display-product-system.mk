@@ -30,6 +30,6 @@ SOONG_CONFIG_qtiunifeddraw := qtiunifeddraw_enabled
 SOONG_CONFIG_qtidisplaycommonsys_displayconfig_enabled := false
 SOONG_CONFIG_qtiunifeddraw_qtiunifeddraw_enabled := true
 
-ifeq ($(call is-vendor-board-platform,QCOM),true)
+ifneq (,$(call is-vendor-board-qcom))
     SOONG_CONFIG_qtidisplaycommonsys_displayconfig_enabled := true
 endif

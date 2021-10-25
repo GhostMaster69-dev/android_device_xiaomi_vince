@@ -251,13 +251,13 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUClusterMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "1036800"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "TASchedtuneBoost",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "10"
     },
     {

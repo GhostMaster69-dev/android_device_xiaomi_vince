@@ -1,3 +1,5 @@
+allow init property_type:file { append create getattr map open read relabelto rename setattr unlink write };
+
 allow init wcnss_device:chr_file write;
 
 # Allow init to bind mount gps_debug.conf

@@ -21,6 +21,7 @@ allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
 allow hal_power_default device_latency:chr_file rw_file_perms;
 allow hal_power_default debugfs_sched_features:file rw_file_perms;
 allow hal_power_default proc_sysctl_schedboost:file rw_file_perms;
+allow hal_power_default proc_sysctl_compaction_proactiveness:file rw_file_perms;
 allow hal_power_default sysfs_devfreq:dir r_dir_perms;
 allow hal_power_default sysfs_devfreq:file rw_file_perms;
 allow hal_power_default sysfs_devfreq:lnk_file r_file_perms;

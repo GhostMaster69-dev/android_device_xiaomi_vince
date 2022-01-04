@@ -11,6 +11,10 @@ allow vendor_init system_data_file:dir { write };
 allow vendor_init proc_sysctl_autogroup:file w_file_perms;
 allow vendor_init proc_sysctl_schedboost:file w_file_perms;
 
+# Fingerprint
+get_prop(vendor_init, vendor_fp_prop)
+set_prop(vendor_init, vendor_fp_prop)
+
 # Power HAL
 set_prop(vendor_init, vendor_power_prop)
 

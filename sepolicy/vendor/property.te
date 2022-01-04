@@ -1,5 +1,8 @@
 # Camera
 type vendor_camera_prop, property_type;
 
+# Fingerprint
+vendor_public_prop(vendor_fp_prop)
+
 # Power HAL
 type vendor_power_prop, property_type;

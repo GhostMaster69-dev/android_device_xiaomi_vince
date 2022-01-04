@@ -26,3 +26,6 @@ allow hal_fingerprint_default vfat:file { getattr open read };
 allow hal_fingerprint_default gx_fpd_data_file:dir create_dir_perms;
 allow hal_fingerprint_default system_data_file:dir create_dir_perms;
 allow hal_fingerprint_default gx_fpd_data_file:file create_file_perms;
+
+# Allow read/write property
+set_prop(hal_fingerprint_default, vendor_fp_prop)

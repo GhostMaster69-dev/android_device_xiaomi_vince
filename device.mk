@@ -210,8 +210,6 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    fakelogprint \
-    libshims_gxfpd \
     android.hardware.biometrics.fingerprint@2.1
 
 # Fwk-detect

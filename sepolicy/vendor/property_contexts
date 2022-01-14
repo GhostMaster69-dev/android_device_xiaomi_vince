@@ -41,3 +41,5 @@ ro.hardware.chipname		u:object_r:exported_default_prop:s0
 vendor.powerhal.audio           u:object_r:vendor_power_prop:s0
 vendor.powerhal.init            u:object_r:vendor_power_prop:s0
 vendor.powerhal.rendering       u:object_r:vendor_power_prop:s0
+
+persist.vendor.mwqem.           u:object_r:vendor_mwqem_prop:s0

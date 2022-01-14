@@ -3,3 +3,6 @@ vendor_public_prop(vendor_fp_prop)
 
 # Power HAL
 vendor_internal_prop(vendor_power_prop)
+
+# mwqem property
+vendor_restricted_prop(vendor_mwqem_prop);

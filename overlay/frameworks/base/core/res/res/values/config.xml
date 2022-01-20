@@ -536,6 +536,9 @@
     <!-- True if the device supports system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">true</bool>
 
+    <!-- Specify if the fingerprint hardware support gestures -->
+    <bool name="config_fingerprintSupportsGestures">true</bool>
+
     <!-- Flag indicating whether the surface flinger has limited
         alpha compositing functionality in hardware.  If set, the window
         manager will disable alpha trasformation in animations where not

@@ -6,6 +6,9 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
-    <!-- Rounded display corners-->
+    <!-- Default radius of the software rounded corners. -->
     <dimen name="rounded_corner_radius">20dp</dimen>
+
+    <!-- Default paddings for content around the corners. -->
+    <dimen name="rounded_corner_content_padding">10dp</dimen>
 </resources>

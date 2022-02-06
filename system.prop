@@ -21,9 +21,6 @@ ro.launcher.blur.appLaunch=0
 ro.surface_flinger.supports_background_blur=1
 ro.sf.blurs_are_expensive=1
 
-# BPF
-ro.kernel.ebpf.supported=true
-
 # Camera
 persist.camera.mct.debug=0
 persist.camera.iface.logs=0

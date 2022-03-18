@@ -30,6 +30,9 @@ $(call inherit-product, device/xiaomi/vince/device.mk)
 # Inherit some common Octavi stuff.
 $(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 
+# Include Octavi specific sepolicy
+-include device/octavi/sepolicy/qcom/sepolicy.mk
+
 # Bootanimation Resolution
 TARGET_BOOT_ANIMATION_RES := 1080
 

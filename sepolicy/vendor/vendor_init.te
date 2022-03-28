@@ -10,3 +10,6 @@ allow vendor_init system_data_file:dir { write };
 
 allow vendor_init proc_sysctl_autogroup:file w_file_perms;
 allow vendor_init proc_sysctl_schedboost:file w_file_perms;
+
+# Power HAL
+set_prop(vendor_init, power_prop)

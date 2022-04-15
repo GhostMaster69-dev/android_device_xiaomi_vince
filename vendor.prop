@@ -85,6 +85,9 @@ ro.vendor.bluetooth.wipower=false
 # MINOR_CLASS: 0x0C -> 12 (Smart Phone)
 bluetooth.device.class_of_device=90,2,12
 
+# Bluetooth default device name
+bluetooth.device.default_name=Redmi 5 Plus
+
 # Bluetooth power
 bluetooth.hardware.power.operating_voltage_mv=3300
 

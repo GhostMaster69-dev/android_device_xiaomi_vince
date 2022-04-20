@@ -1,4 +1,3 @@
-//libgralloc
 cc_library_shared {
     name: "libgralloc.qti",
     vendor_available: true,

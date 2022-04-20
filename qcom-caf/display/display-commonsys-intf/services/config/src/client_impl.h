@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 The Linux Foundation. All rights reserved.
+* Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -65,6 +65,7 @@ class ClientCallback: public IDisplayConfigCallback {
   void ParseNotifyCWBBufferDone(const ByteStream &input_params, const HandleStream &input_handles);
   void ParseNotifyQsyncChange(const ByteStream &input_params);
   void ParseNotifyIdleStatus(const ByteStream &input_params);
+  void ParseNotifyCameraSmooth(const ByteStream &input_params);
   ConfigCallback *callback_ = nullptr;
 };
 
@@ -89,6 +90,7 @@ class ClientImpl : public ClientInterface {
   virtual int SetIdleTimeout(uint32_t value);
   virtual int GetHDRCapabilities(DisplayType dpy, HDRCapsParams *caps);
   virtual int SetCameraLaunchStatus(uint32_t on);
+  virtual int SetCameraSmoothInfo(CameraSmoothOp op, uint32_t fps);
   virtual int DisplayBWTransactionPending(bool *status);
   virtual int SetDisplayAnimating(uint64_t display_id, bool animating);
   virtual int ControlIdlePowerCollapse(bool enable, bool synchronous);
@@ -127,6 +129,14 @@ class ClientImpl : public ClientInterface {
   virtual int IsSupportedConfigSwitch(uint32_t disp_id, uint32_t config, bool *supported);
   virtual int GetDisplayType(uint64_t physical_disp_id, DisplayType *disp_type);
   virtual int AllowIdleFallback();
+  virtual int GetDisplayTileCount(uint64_t physical_disp_id, uint32_t *num_h_tiles,
+                                  uint32_t *num_v_tiles);
+  virtual int SetPowerModeTiled(uint64_t physical_disp_id, PowerMode power_mode,
+                                uint32_t tile_h_loc, uint32_t tile_v_loc);
+  virtual int SetPanelBrightnessTiled(uint64_t physical_disp_id, uint32_t level,
+                                      uint32_t tile_h_loc, uint32_t tile_v_loc);
+  virtual int SetWiderModePreference(uint64_t physical_disp_id, WiderModePref mode_pref);
+  virtual int ControlCameraSmoothCallback(bool enable);
   virtual int DummyDisplayConfigAPI();
 
  private:

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2020, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -185,7 +185,7 @@ Error decodeYUVPlaneInfoMetadata(hidl_vec<uint8_t> &in, qti_ycbcr *out) {
   if (!in.size() || !out) {
     return Error::BAD_VALUE;
   }
-  //qti_ycbcr *p = reinterpret_cast<qti_ycbcr *>(in.data());
+  qti_ycbcr *p = reinterpret_cast<qti_ycbcr *>(in.data());
   memcpy(out, in.data(), (YCBCR_LAYOUT_ARRAY_SIZE * sizeof(qti_ycbcr)));
   return Error::NONE;
 }
@@ -278,102 +278,93 @@ Error get(void *buffer, uint32_t type, void *param) {
 
   switch (type) {
     case QTI_VT_TIMESTAMP:
-      err = static_cast<Error>(android::gralloc4::decodeUint64(
-          qtigralloc::MetadataType_VTTimestamp, bytestream, reinterpret_cast<uint64_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeUint64(qtigralloc::MetadataType_VTTimestamp,
+                                                               bytestream, (uint64_t *)param));
       break;
     case QTI_VIDEO_PERF_MODE:
       err = static_cast<Error>(android::gralloc4::decodeUint32(
-          qtigralloc::MetadataType_VideoPerfMode, bytestream, reinterpret_cast<uint32_t *>(param)));
+          qtigralloc::MetadataType_VideoPerfMode, bytestream, (uint32_t *)param));
       break;
     case QTI_LINEAR_FORMAT:
       err = static_cast<Error>(android::gralloc4::decodeUint32(
-          qtigralloc::MetadataType_LinearFormat, bytestream, reinterpret_cast<uint32_t *>(param)));
+          qtigralloc::MetadataType_LinearFormat, bytestream, (uint32_t *)param));
       break;
     case QTI_SINGLE_BUFFER_MODE:
-      err = static_cast<Error>(
-          android::gralloc4::decodeUint32(qtigralloc::MetadataType_SingleBufferMode, bytestream,
-                                          reinterpret_cast<uint32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeUint32(
+          qtigralloc::MetadataType_SingleBufferMode, bytestream, (uint32_t *)param));
       break;
     case QTI_PP_PARAM_INTERLACED:
-      err = static_cast<Error>(
-          android::gralloc4::decodeInt32(qtigralloc::MetadataType_PPParamInterlaced, bytestream,
-                                         reinterpret_cast<int32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeInt32(
+          qtigralloc::MetadataType_PPParamInterlaced, bytestream, (int32_t *)param));
       break;
     case QTI_MAP_SECURE_BUFFER:
-      err = static_cast<Error>(
-          android::gralloc4::decodeInt32(qtigralloc::MetadataType_MapSecureBuffer, bytestream,
-                                         reinterpret_cast<int32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeInt32(
+          qtigralloc::MetadataType_MapSecureBuffer, bytestream, (int32_t *)param));
       break;
     case QTI_COLOR_METADATA:
-      err = decodeColorMetadata(bytestream, reinterpret_cast<ColorMetaData *>(param));
+      err = decodeColorMetadata(bytestream, (ColorMetaData *)param);
       break;
     case QTI_GRAPHICS_METADATA:
       err = decodeGraphicsMetadataRaw(bytestream, param);
       break;
     case QTI_UBWC_CR_STATS_INFO:
-      err = decodeUBWCStats(bytestream, reinterpret_cast<UBWCStats *>(param));
+      err = decodeUBWCStats(bytestream, (UBWCStats *)param);
       break;
     case QTI_REFRESH_RATE:
-      err = static_cast<Error>(android::gralloc4::decodeFloat(
-          qtigralloc::MetadataType_RefreshRate, bytestream, reinterpret_cast<float *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeFloat(qtigralloc::MetadataType_RefreshRate,
+                                                              bytestream, (float *)param));
       break;
     case QTI_CVP_METADATA:
-      err = decodeCVPMetadata(bytestream, reinterpret_cast<CVPMetadata *>(param));
+      err = decodeCVPMetadata(bytestream, (CVPMetadata *)param);
       break;
     case QTI_VIDEO_HISTOGRAM_STATS:
-      err = decodeVideoHistogramMetadata(bytestream,
-                                         reinterpret_cast<VideoHistogramMetadata *>(param));
+      err = decodeVideoHistogramMetadata(bytestream, (VideoHistogramMetadata *)param);
       break;
     case QTI_VIDEO_TS_INFO:
-      err = decodeVideoTimestampInfo(bytestream, reinterpret_cast<VideoTimestampInfo *>(param));
+      err = decodeVideoTimestampInfo(bytestream, (VideoTimestampInfo *)param);
       break;
     case QTI_FD:
-      err = static_cast<Error>(android::gralloc4::decodeInt32(
-          qtigralloc::MetadataType_FD, bytestream, reinterpret_cast<int32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeInt32(qtigralloc::MetadataType_FD,
+                                                              bytestream, (int32_t *)param));
       break;
     case QTI_PRIVATE_FLAGS:
-      err = static_cast<Error>(android::gralloc4::decodeInt32(
-          qtigralloc::MetadataType_PrivateFlags, bytestream, reinterpret_cast<int32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeInt32(qtigralloc::MetadataType_PrivateFlags,
+                                                              bytestream, (int32_t *)param));
       break;
     case QTI_ALIGNED_WIDTH_IN_PIXELS:
-      err = static_cast<Error>(
-          android::gralloc4::decodeUint32(qtigralloc::MetadataType_AlignedWidthInPixels, bytestream,
-                                          reinterpret_cast<uint32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeUint32(
+          qtigralloc::MetadataType_AlignedWidthInPixels, bytestream, (uint32_t *)param));
       break;
     case QTI_ALIGNED_HEIGHT_IN_PIXELS:
-      err = static_cast<Error>(
-          android::gralloc4::decodeUint32(qtigralloc::MetadataType_AlignedHeightInPixels,
-                                          bytestream, reinterpret_cast<uint32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeUint32(
+          qtigralloc::MetadataType_AlignedHeightInPixels, bytestream, (uint32_t *)param));
       break;
     case QTI_STANDARD_METADATA_STATUS:
     case QTI_VENDOR_METADATA_STATUS:
-      err = decodeMetadataState(bytestream, reinterpret_cast<bool *>(param));
+      err = decodeMetadataState(bytestream, (bool *)param);
       break;
     case QTI_BUFFER_TYPE:
       err = static_cast<Error>(android::gralloc4::decodeUint32(
-          qtigralloc::MetadataType_BufferType, bytestream, reinterpret_cast<uint32_t *>(param)));
+          qtigralloc::MetadataType_BufferType, bytestream, (uint32_t *)param));
       break;
     case QTI_CUSTOM_DIMENSIONS_STRIDE:
-      err = static_cast<Error>(
-          android::gralloc4::decodeUint32(qtigralloc::MetadataType_CustomDimensionsStride,
-                                          bytestream, reinterpret_cast<uint32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeUint32(
+          qtigralloc::MetadataType_CustomDimensionsStride, bytestream, (uint32_t *)param));
       break;
     case QTI_CUSTOM_DIMENSIONS_HEIGHT:
-      err = static_cast<Error>(
-          android::gralloc4::decodeUint32(qtigralloc::MetadataType_CustomDimensionsHeight,
-                                          bytestream, reinterpret_cast<uint32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeUint32(
+          qtigralloc::MetadataType_CustomDimensionsHeight, bytestream, (uint32_t *)param));
       break;
     case QTI_RGB_DATA_ADDRESS:
-      err = static_cast<Error>(
-          android::gralloc4::decodeUint64(qtigralloc::MetadataType_RgbDataAddress, bytestream,
-                                          reinterpret_cast<uint64_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeUint64(
+          qtigralloc::MetadataType_RgbDataAddress, bytestream, (uint64_t *)param));
       break;
     case QTI_COLORSPACE:
-      err = static_cast<Error>(android::gralloc4::decodeUint32(
-          qtigralloc::MetadataType_ColorSpace, bytestream, reinterpret_cast<uint32_t *>(param)));
+      err = static_cast<Error>(android::gralloc4::decodeUint32(qtigralloc::MetadataType_ColorSpace,
+                                                               bytestream, (uint32_t *)param));
       break;
     case QTI_YUV_PLANE_INFO:
-      err = decodeYUVPlaneInfoMetadata(bytestream, reinterpret_cast<qti_ycbcr *>(param));
+      err = decodeYUVPlaneInfoMetadata(bytestream, (qti_ycbcr *)param);
       break;
     default:
       param = nullptr;
@@ -395,56 +386,50 @@ Error set(void *buffer, uint32_t type, void *param) {
 
   switch (type) {
     case QTI_VT_TIMESTAMP:
-      err = static_cast<Error>(android::gralloc4::encodeUint64(
-          qtigralloc::MetadataType_VTTimestamp, *reinterpret_cast<uint64_t *>(param), &bytestream));
+      err = static_cast<Error>(android::gralloc4::encodeUint64(qtigralloc::MetadataType_VTTimestamp,
+                                                               *(uint64_t *)param, &bytestream));
       break;
     case QTI_VIDEO_PERF_MODE:
-      err = static_cast<Error>(
-          android::gralloc4::encodeUint32(qtigralloc::MetadataType_VideoPerfMode,
-                                          *reinterpret_cast<uint32_t *>(param), &bytestream));
+      err = static_cast<Error>(android::gralloc4::encodeUint32(
+          qtigralloc::MetadataType_VideoPerfMode, *(uint32_t *)param, &bytestream));
       break;
     case QTI_LINEAR_FORMAT:
-      err = static_cast<Error>(
-          android::gralloc4::encodeUint32(qtigralloc::MetadataType_LinearFormat,
-                                          *reinterpret_cast<uint32_t *>(param), &bytestream));
+      err = static_cast<Error>(android::gralloc4::encodeUint32(
+          qtigralloc::MetadataType_LinearFormat, *(uint32_t *)param, &bytestream));
       break;
     case QTI_SINGLE_BUFFER_MODE:
-      err = static_cast<Error>(
-          android::gralloc4::encodeUint32(qtigralloc::MetadataType_SingleBufferMode,
-                                          *reinterpret_cast<uint32_t *>(param), &bytestream));
+      err = static_cast<Error>(android::gralloc4::encodeUint32(
+          qtigralloc::MetadataType_SingleBufferMode, *(uint32_t *)param, &bytestream));
       break;
     case QTI_PP_PARAM_INTERLACED:
-      err = static_cast<Error>(
-          android::gralloc4::encodeInt32(qtigralloc::MetadataType_PPParamInterlaced,
-                                         *reinterpret_cast<int32_t *>(param), &bytestream));
+      err = static_cast<Error>(android::gralloc4::encodeInt32(
+          qtigralloc::MetadataType_PPParamInterlaced, *(int32_t *)param, &bytestream));
       break;
     case QTI_MAP_SECURE_BUFFER:
-      err = static_cast<Error>(
-          android::gralloc4::encodeInt32(qtigralloc::MetadataType_MapSecureBuffer,
-                                         *reinterpret_cast<int32_t *>(param), &bytestream));
+      err = static_cast<Error>(android::gralloc4::encodeInt32(
+          qtigralloc::MetadataType_MapSecureBuffer, *(int32_t *)param, &bytestream));
       break;
     case QTI_COLOR_METADATA:
-      err = encodeColorMetadata(*reinterpret_cast<ColorMetaData *>(param), &bytestream);
+      err = encodeColorMetadata(*(ColorMetaData *)param, &bytestream);
       break;
     case QTI_GRAPHICS_METADATA:
       err = encodeGraphicsMetadataRaw(param, &bytestream);
       break;
     case QTI_UBWC_CR_STATS_INFO:
-      err = encodeUBWCStats(reinterpret_cast<UBWCStats *>(param), &bytestream);
+      err = encodeUBWCStats((UBWCStats *)param, &bytestream);
       break;
     case QTI_REFRESH_RATE:
-      err = static_cast<Error>(android::gralloc4::encodeFloat(
-          qtigralloc::MetadataType_RefreshRate, *reinterpret_cast<float *>(param), &bytestream));
+      err = static_cast<Error>(android::gralloc4::encodeFloat(qtigralloc::MetadataType_RefreshRate,
+                                                              *(float *)param, &bytestream));
       break;
     case QTI_CVP_METADATA:
-      err = encodeCVPMetadata(*reinterpret_cast<CVPMetadata *>(param), &bytestream);
+      err = encodeCVPMetadata(*(CVPMetadata *)param, &bytestream);
       break;
     case QTI_VIDEO_HISTOGRAM_STATS:
-      err = encodeVideoHistogramMetadata(*reinterpret_cast<VideoHistogramMetadata *>(param),
-                                         &bytestream);
+      err = encodeVideoHistogramMetadata(*(VideoHistogramMetadata *)param, &bytestream);
       break;
     case QTI_VIDEO_TS_INFO:
-      err = encodeVideoTimestampInfo(*reinterpret_cast<VideoTimestampInfo *>(param), &bytestream);
+      err = encodeVideoTimestampInfo(*(VideoTimestampInfo *)param, &bytestream);
       break;
     default:
       param = nullptr;
@@ -455,7 +440,7 @@ Error set(void *buffer, uint32_t type, void *param) {
     return err;
   }
 
-  return mapper->set(reinterpret_cast<void *>(buffer), metadata_type, bytestream);
+  return mapper->set((void *)buffer, metadata_type, bytestream);
 }
 
 int getMetadataState(void *buffer, uint32_t type) {

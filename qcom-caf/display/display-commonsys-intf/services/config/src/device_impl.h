@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 The Linux Foundation. All rights reserved.
+* Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -72,6 +72,7 @@ class DeviceImpl : public IDisplayConfig, public android::hardware::hidl_death_r
     virtual void NotifyQsyncChange(bool qsync_enabled, int32_t refresh_rate,
                                    int32_t qsync_refresh_rate);
     virtual void NotifyIdleStatus(bool is_idle);
+    virtual void NotifyCameraSmoothInfo(CameraSmoothOp op, uint32_t fps);
 
     void ParseIsDisplayConnected(const ByteStream &input_params, perform_cb _hidl_cb);
     void ParseSetDisplayStatus(const ByteStream &input_params, perform_cb _hidl_cb);
@@ -89,6 +90,8 @@ class DeviceImpl : public IDisplayConfig, public android::hardware::hidl_death_r
     void ParseSetIdleTimeout(const ByteStream &input_params, perform_cb _hidl_cb);
     void ParseGetHdrCapabilities(const ByteStream &input_params, perform_cb _hidl_cb);
     void ParseSetCameraLaunchStatus(const ByteStream &input_params, perform_cb _hidl_cb);
+    void ParseSetCameraSmoothInfo(const ByteStream &input_params, perform_cb _hidl_cb);
+    void ParseControlCameraSmoothCallback(const ByteStream &input_params, perform_cb _hidl_cb);
     void ParseDisplayBwTransactionPending(perform_cb _hidl_cb);
     void ParseSetDisplayAnimating(const ByteStream &input_params, perform_cb _hidl_cb);
     void ParseControlIdlePowerCollapse(const ByteStream &input_params, perform_cb _hidl_cb);
@@ -126,6 +129,10 @@ class DeviceImpl : public IDisplayConfig, public android::hardware::hidl_death_r
     void ParseIsSupportedConfigSwitch(const ByteStream &input_params, perform_cb _hidl_cb);
     void ParseGetDisplayType(const ByteStream &input_params, perform_cb _hidl_cb);
     void ParseAllowIdleFallback(perform_cb _hidl_cb);
+    void ParseGetDisplayTileCount(const ByteStream &input_params, perform_cb _hidl_cb);
+    void ParseSetPowerModeTiled(const ByteStream &input_params, perform_cb _hidl_cb);
+    void ParseSetPanelBrightnessTiled(const ByteStream &input_params, perform_cb _hidl_cb);
+    void ParseSetWiderModePreference(const ByteStream &input_params, perform_cb _hidl_cb);
 
    private:
     ConfigInterface *intf_ = nullptr;
@@ -143,7 +150,7 @@ class DeviceImpl : public IDisplayConfig, public android::hardware::hidl_death_r
   ClientContext *intf_ = nullptr;
   std::map<uint64_t, std::shared_ptr<DeviceClientContext>> display_config_map_;
   uint64_t client_id_ = 0;
-  std::mutex death_service_mutex_;
+  std::recursive_mutex death_service_mutex_;
   static DeviceImpl *device_obj_;
   static std::mutex device_lock_;
 };

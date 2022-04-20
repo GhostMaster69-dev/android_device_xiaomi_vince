@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 The Linux Foundation. All rights reserved.
+* Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -27,6 +27,7 @@
 * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include <cinttypes>
 #include <string>
 #include <vector>
 
@@ -48,7 +49,6 @@ int DeviceImpl::CreateInstance(ClientContext *intf) {
     android::status_t status = device_obj_->IDisplayConfig::registerAsService();
     // Unable to start Display Config 2.0 service. Fail Init.
     if (status != android::OK) {
-      delete device_obj_;
       device_obj_ = nullptr;
       return -1;
     }
@@ -61,7 +61,6 @@ int DeviceImpl::CreateInstance(ClientContext *intf) {
 Return<void> DeviceImpl::registerClient(const hidl_string &client_name,
                                         const sp<IDisplayConfigCallback>& callback,
                                         registerClient_cb _hidl_cb) {
-  ALOGI("Register client:%s", client_name.c_str());
   int32_t error = 0;
   std::string client_name_str = client_name.c_str();
   if (client_name_str.empty()) {
@@ -102,6 +101,8 @@ Return<void> DeviceImpl::registerClient(const hidl_string &client_name,
 
   device_client->SetDeviceConfigIntf(intf);
 
+  std::lock_guard<std::recursive_mutex> lock(death_service_mutex_);
+  ALOGI("Register client name: %s device client: %p", client_name.c_str(), device_client.get());
   display_config_map_.emplace(std::make_pair(client_handle, device_client));
   _hidl_cb(error, client_handle);
   return Void();
@@ -109,13 +110,14 @@ Return<void> DeviceImpl::registerClient(const hidl_string &client_name,
 
 void DeviceImpl::serviceDied(uint64_t client_handle,
                              const android::wp<::android::hidl::base::V1_0::IBase>& callback) {
-  std::lock_guard<std::mutex> lock(death_service_mutex_);
+  std::lock_guard<std::recursive_mutex> lock(death_service_mutex_);
   auto itr = display_config_map_.find(client_handle);
   std::shared_ptr<DeviceClientContext> client = itr->second;
   if (client != NULL) {
     ConfigInterface *intf = client->GetDeviceConfigIntf();
     intf_->UnRegisterClientContext(intf);
     client.reset();
+    ALOGW("Client id:%" PRIu64 " service died", client_handle);
     display_config_map_.erase(itr);
   }
 }
@@ -171,6 +173,18 @@ void DeviceImpl::DeviceClientContext::NotifyIdleStatus(bool is_idle) {
   output_params.setToExternal(reinterpret_cast<uint8_t*>(&data), sizeof(data));
 
   auto status = callback_->perform(kControlIdleStatusCallback, output_params, {});
+  if (status.isDeadObject()) {
+    return;
+  }
+}
+
+void DeviceImpl::DeviceClientContext::NotifyCameraSmoothInfo(CameraSmoothOp op, uint32_t fps) {
+  struct CameraSmoothInfo data = {op, fps};
+  ByteStream output_params;
+
+  output_params.setToExternal(reinterpret_cast<uint8_t*>(&data), sizeof(data));
+
+  auto status = callback_->perform(kSetCameraSmoothInfo, output_params, {});
   if (status.isDeadObject()) {
     return;
   }
@@ -390,6 +404,28 @@ void DeviceImpl::DeviceClientContext::ParseSetCameraLaunchStatus(const ByteStrea
   launch_status_data = reinterpret_cast<const uint32_t*>(data);
 
   int32_t error = intf_->SetCameraLaunchStatus(*launch_status_data);
+
+  _hidl_cb(error, {}, {});
+}
+
+void DeviceImpl::DeviceClientContext::ParseSetCameraSmoothInfo(const ByteStream &input_params,
+                                                           perform_cb _hidl_cb) {
+  const CameraSmoothInfo *camera_info;
+
+  const uint8_t *data = input_params.data();
+  camera_info = reinterpret_cast<const CameraSmoothInfo*>(data);
+  int32_t error = intf_->SetCameraSmoothInfo(camera_info->op, camera_info->fps);
+  _hidl_cb(error, {}, {});
+}
+
+void DeviceImpl::DeviceClientContext::ParseControlCameraSmoothCallback(const ByteStream &input_params,
+                                                                perform_cb _hidl_cb) {
+  const bool *enable;
+
+  const uint8_t *data = input_params.data();
+  enable = reinterpret_cast<const bool*>(data);
+
+  int32_t error = intf_->ControlCameraSmoothCallback(*enable);
 
   _hidl_cb(error, {}, {});
 }
@@ -753,6 +789,7 @@ void DeviceImpl::DeviceClientContext::ParseSendTUIEvent(const ByteStream &input_
 }
 
 void DeviceImpl::ParseDestroy(uint64_t client_handle, perform_cb _hidl_cb) {
+  std::lock_guard<std::recursive_mutex> lock(death_service_mutex_);
   auto itr = display_config_map_.find(client_handle);
   if (itr == display_config_map_.end()) {
     _hidl_cb(-EINVAL, {}, {});
@@ -856,10 +893,68 @@ void DeviceImpl::DeviceClientContext::ParseAllowIdleFallback(perform_cb _hidl_cb
   _hidl_cb(error, {}, {});
 }
 
+void DeviceImpl::DeviceClientContext::ParseGetDisplayTileCount(const ByteStream &input_params,
+                                                               perform_cb _hidl_cb) {
+  const uint64_t *data = reinterpret_cast<const uint64_t*>(input_params.data());
+  uint64_t physical_disp_id = data ? *data : 0;
+  uint32_t num_tiles[2] = {0, 0};
+
+  int32_t error = intf_->GetDisplayTileCount(physical_disp_id, &num_tiles[0], &num_tiles[1]);
+  ByteStream output_params;
+  output_params.setToExternal(reinterpret_cast<uint8_t*>(&num_tiles),
+                              sizeof(num_tiles) * sizeof(uint32_t));
+
+  _hidl_cb(error, output_params, {});
+}
+
+void DeviceImpl::DeviceClientContext::ParseSetPowerModeTiled(const ByteStream &input_params,
+                                                             perform_cb _hidl_cb) {
+  struct PowerModeTiledParams set_power_mode_tiled_data = {};
+
+  const uint8_t *data = input_params.data();
+  if (data) {
+    set_power_mode_tiled_data = *reinterpret_cast<const PowerModeTiledParams*>(data);
+  }
+  int32_t error = intf_->SetPowerModeTiled(set_power_mode_tiled_data.physical_disp_id,
+                                           set_power_mode_tiled_data.power_mode,
+                                           set_power_mode_tiled_data.tile_h_loc,
+                                           set_power_mode_tiled_data.tile_v_loc);
+  _hidl_cb(error, {}, {});
+}
+
+void DeviceImpl::DeviceClientContext::ParseSetPanelBrightnessTiled(const ByteStream &input_params,
+                                                                   perform_cb _hidl_cb) {
+  struct PanelBrightnessTiledParams set_panel_brightness_tiled_data = {};
+
+  const uint8_t *data = input_params.data();
+  if (data) {
+    set_panel_brightness_tiled_data = *reinterpret_cast<const PanelBrightnessTiledParams*>(data);
+  }
+  int32_t error = intf_->SetPanelBrightnessTiled(set_panel_brightness_tiled_data.physical_disp_id,
+                                                 set_panel_brightness_tiled_data.level,
+                                                 set_panel_brightness_tiled_data.tile_h_loc,
+                                                 set_panel_brightness_tiled_data.tile_v_loc);
+  _hidl_cb(error, {}, {});
+}
+
+void DeviceImpl::DeviceClientContext::ParseSetWiderModePreference(const ByteStream &input_params,
+                                                                  perform_cb _hidl_cb) {
+  struct WiderModePrefParams set_wider_mode_pref_data = {};
+
+  const uint8_t *data = input_params.data();
+  if (data) {
+    set_wider_mode_pref_data = *reinterpret_cast<const WiderModePrefParams*>(data);
+  }
+  int32_t error = intf_->SetWiderModePreference(set_wider_mode_pref_data.physical_disp_id,
+                                                set_wider_mode_pref_data.mode_pref);
+  _hidl_cb(error, {}, {});
+}
+
 Return<void> DeviceImpl::perform(uint64_t client_handle, uint32_t op_code,
                                  const ByteStream &input_params, const HandleStream &input_handles,
                                  perform_cb _hidl_cb) {
   int32_t error = 0;
+  std::lock_guard<std::recursive_mutex> lock(death_service_mutex_);
   auto itr = display_config_map_.find(client_handle);
   if (itr == display_config_map_.end()) {
     error = -EINVAL;
@@ -921,6 +1016,12 @@ Return<void> DeviceImpl::perform(uint64_t client_handle, uint32_t op_code,
       break;
     case kSetCameraLaunchStatus:
       client->ParseSetCameraLaunchStatus(input_params, _hidl_cb);
+      break;
+    case kSetCameraSmoothInfo:
+      client->ParseSetCameraSmoothInfo(input_params, _hidl_cb);
+      break;
+    case kControlCameraSmoothCallback:
+      client->ParseControlCameraSmoothCallback(input_params, _hidl_cb);
       break;
     case kDisplayBwTransactionPending:
       client->ParseDisplayBwTransactionPending(_hidl_cb);
@@ -1026,6 +1127,18 @@ Return<void> DeviceImpl::perform(uint64_t client_handle, uint32_t op_code,
       break;
     case kAllowIdleFallback:
       client->ParseAllowIdleFallback(_hidl_cb);
+      break;
+    case kGetDisplayTileCount:
+      client->ParseGetDisplayTileCount(input_params, _hidl_cb);
+      break;
+    case kSetPowerModeTiled:
+      client->ParseSetPowerModeTiled(input_params, _hidl_cb);
+      break;
+    case kSetPanelBrightnessTiled:
+      client->ParseSetPanelBrightnessTiled(input_params, _hidl_cb);
+      break;
+    case kSetWiderModePref:
+      client->ParseSetWiderModePreference(input_params, _hidl_cb);
       break;
     case kDummyOpcode:
       _hidl_cb(-EINVAL, {}, {});

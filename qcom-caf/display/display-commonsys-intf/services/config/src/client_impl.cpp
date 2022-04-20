@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 The Linux Foundation. All rights reserved.
+* Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -349,6 +349,21 @@ int ClientImpl::SetCameraLaunchStatus(uint32_t on) {
   };
 
   display_config_->perform(client_handle_, kSetCameraLaunchStatus, input_params, {}, hidl_cb);
+
+  return error;
+}
+
+int ClientImpl::SetCameraSmoothInfo(CameraSmoothOp op, uint32_t fps) {
+  CameraSmoothInfo input = {op, fps};
+  ByteStream input_params;
+  input_params.setToExternal(reinterpret_cast<uint8_t*>(&input),
+                             sizeof(CameraSmoothInfo));
+  int error = 0;
+  auto hidl_cb = [&error] (int32_t err, ByteStream params, HandleStream handles) {
+    error = err;
+  };
+
+  display_config_->perform(client_handle_, kSetCameraSmoothInfo, input_params, {}, hidl_cb);
 
   return error;
 }
@@ -849,6 +864,19 @@ int ClientImpl::ControlIdleStatusCallback(bool enable) {
   return error;
 }
 
+int ClientImpl::ControlCameraSmoothCallback(bool enable) {
+  ByteStream input_params;
+  input_params.setToExternal(reinterpret_cast<uint8_t*>(&enable), sizeof(bool));
+  int32_t error = 0;
+  auto hidl_cb = [&error] (int32_t err, ByteStream params, HandleStream handles) {
+    error = err;
+  };
+
+  display_config_->perform(client_handle_, kControlCameraSmoothCallback, input_params, {}, hidl_cb);
+
+  return error;
+}
+
 int ClientImpl::SendTUIEvent(DisplayType dpy, TUIEventType event_type) {
   struct TUIEventParams input = {dpy, event_type};
   ByteStream input_params;
@@ -860,6 +888,18 @@ int ClientImpl::SendTUIEvent(DisplayType dpy, TUIEventType event_type) {
 
   display_config_->perform(client_handle_, kSendTUIEvent, input_params, {}, hidl_cb);
 
+  return error;
+}
+
+int ClientImpl::DummyDisplayConfigAPI() {
+  int error = 0;
+  auto hidl_cb = [&error] (int32_t err, ByteStream params, HandleStream handles) {
+    error = err;
+  };
+  display_config_->perform(client_handle_, kDummyOpcode, {}, {}, hidl_cb);
+  if (error) {
+    return -EINVAL;
+  }
   return error;
 }
 
@@ -931,18 +971,6 @@ int ClientImpl::IsRCSupported(uint32_t disp_id, bool *supported) {
     *supported = *output;
   }
 
-  return error;
-}
-
-int ClientImpl::DummyDisplayConfigAPI() {
-  int error = 0;
-  auto hidl_cb = [&error] (int32_t err, ByteStream params, HandleStream handles) {
-    error = err;
-  };
-  display_config_->perform(client_handle_, kDummyOpcode, {}, {}, hidl_cb);
-  if (error) {
-    return -EINVAL;
-  }
   return error;
 }
 
@@ -1033,6 +1061,16 @@ void ClientCallback::ParseNotifyQsyncChange(const ByteStream &input_params) {
                                qsync_data->qsync_refresh_rate);
 }
 
+void ClientCallback::ParseNotifyCameraSmooth(const ByteStream &input_params) {
+  if (callback_ == nullptr || input_params.size() == 0) {
+    return;
+  }
+
+  const uint8_t *data = input_params.data();
+  const CameraSmoothInfo *camera_info = reinterpret_cast<const CameraSmoothInfo*>(data);
+  callback_->NotifyCameraSmoothInfo(camera_info->op, camera_info->fps);
+}
+
 void ClientCallback::ParseNotifyIdleStatus(const ByteStream &input_params) {
   const bool *is_idle;
   if (callback_ == nullptr || input_params.size() == 0) {
@@ -1042,6 +1080,79 @@ void ClientCallback::ParseNotifyIdleStatus(const ByteStream &input_params) {
   const uint8_t *data = input_params.data();
   is_idle = reinterpret_cast<const bool*>(data);
   callback_->NotifyIdleStatus(*is_idle);
+}
+
+int ClientImpl::GetDisplayTileCount(uint64_t physical_disp_id, uint32_t *num_h_tiles,
+                                    uint32_t *num_v_tiles) {
+  if (!num_h_tiles || !num_v_tiles) {
+    return -EINVAL;
+  }
+  ByteStream input_params;
+  input_params.setToExternal(reinterpret_cast<uint8_t*>(&physical_disp_id), sizeof(uint64_t));
+  int error = 0;
+  ByteStream output_params;
+  auto hidl_cb = [&error, &output_params] (int32_t err, ByteStream params, HandleStream handles) {
+    error = err;
+    output_params = params;
+  };
+
+  display_config_->perform(client_handle_, kGetDisplayTileCount, input_params, {}, hidl_cb);
+
+  if (!error) {
+    const uint32_t *data = reinterpret_cast<const uint32_t*>(output_params.data());
+    *num_h_tiles = data ? *data : 0;
+    *num_v_tiles = data ? *(data + 1) : 0;
+  }
+
+  return error;
+}
+
+int ClientImpl::SetPowerModeTiled(uint64_t physical_disp_id, PowerMode power_mode,
+                                  uint32_t tile_h_loc, uint32_t tile_v_loc) {
+  struct PowerModeTiledParams input = {physical_disp_id, power_mode, tile_h_loc, tile_v_loc};
+  ByteStream input_params;
+  input_params.setToExternal(reinterpret_cast<uint8_t*>(&input),
+                             sizeof(struct PowerModeTiledParams));
+  int error = 0;
+  auto hidl_cb = [&error] (int32_t err, ByteStream params, HandleStream handles) {
+    error = err;
+  };
+
+  display_config_->perform(client_handle_, kSetPowerModeTiled, input_params, {}, hidl_cb);
+
+  return error;
+}
+
+int ClientImpl::SetPanelBrightnessTiled(uint64_t physical_disp_id, uint32_t level,
+                                        uint32_t tile_h_loc, uint32_t tile_v_loc) {
+  struct PanelBrightnessTiledParams input = {physical_disp_id, level, tile_h_loc, tile_v_loc};
+  ByteStream input_params;
+  input_params.setToExternal(reinterpret_cast<uint8_t*>(&input),
+                             sizeof(struct PanelBrightnessTiledParams));
+  int error = 0;
+  auto hidl_cb = [&error] (int32_t err, ByteStream params, HandleStream handles) {
+    error = err;
+  };
+
+  display_config_->perform(client_handle_, kSetPanelBrightnessTiled, input_params, {}, hidl_cb);
+
+  return error;
+}
+
+int ClientImpl::SetWiderModePreference(uint64_t physical_disp_id, WiderModePref mode_pref) {
+  struct WiderModePrefParams input = {physical_disp_id, mode_pref};
+  ByteStream input_params;
+  input_params.setToExternal(reinterpret_cast<uint8_t*>(&input),
+                             sizeof(struct WiderModePrefParams));
+  int error = 0;
+  ByteStream output_params;
+  auto hidl_cb = [&error] (int32_t err, ByteStream params, HandleStream handles) {
+    error = err;
+  };
+
+  display_config_->perform(client_handle_, kSetWiderModePref, input_params, {}, hidl_cb);
+
+  return error;
 }
 
 Return<void> ClientCallback::perform(uint32_t op_code, const ByteStream &input_params,
@@ -1055,6 +1166,9 @@ Return<void> ClientCallback::perform(uint32_t op_code, const ByteStream &input_p
       break;
     case kControlIdleStatusCallback:
       ParseNotifyIdleStatus(input_params);
+      break;
+    case kSetCameraSmoothInfo:
+      ParseNotifyCameraSmooth(input_params);
       break;
     default:
       break;

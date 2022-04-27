@@ -27,6 +27,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+# Start MSM IRQ Balance service
+start vendor.msm_irqbalance
 
 # Remove recovery cache from persist
 rm -rf /mnt/vendor/persist/cache/recovery

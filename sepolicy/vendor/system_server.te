@@ -28,3 +28,5 @@ allow system_server proc_touchpanel:lnk_file read;
 allow system_server sysfs_vibrator:file read;
 
 allow system_server app_zygote:process { getpgid };
+
+get_prop(system_server, camera_prop)

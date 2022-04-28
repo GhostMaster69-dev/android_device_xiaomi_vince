@@ -1,3 +1,5 @@
+get_prop(cameraserver, camera_prop)
+
 allow cameraserver camera_data_file:dir { search write add_name };
 allow cameraserver camera_data_file:file { create write open };
 allow cameraserver mediacodec:binder call;

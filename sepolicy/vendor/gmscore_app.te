@@ -3,3 +3,5 @@ dontaudit gmscore_app firmware_file:filesystem getattr;
 dontaudit gmscore_app hal_memtrack_hwservice:hwservice_manager find;
 
 binder_call(gmscore_app, hal_memtrack_default);
+
+get_prop(gmscore_app, camera_prop)

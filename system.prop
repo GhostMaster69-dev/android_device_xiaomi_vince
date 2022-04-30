@@ -111,7 +111,7 @@ vendor.video.disable.ubwc=1
 
 # Octavi custom stuff
 ro.octavi.maintainer=GhostMaster69-dev
-ro.octavi.display.pid=1443828
+ro.octavi.display.pid=1733206
 ro.octavi.hw.cam=12MP:5MP
 ro.octavi.hw.cpu=Snapdragon 625 (14nm)
 

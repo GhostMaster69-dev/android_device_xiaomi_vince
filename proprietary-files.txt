@@ -605,8 +605,8 @@ system_ext/lib64/com.quicinc.cne.constants@1.0.so|e700fbf189a96fe1821a89d59d04c7
 system_ext/lib64/com.quicinc.cne.constants@2.0.so|a5d80268d940651509d9bfc10f38538d6da04580
 system_ext/lib64/com.quicinc.cne.constants@2.1.so|cf8a4412ca6ee339ac0dc2a14a9fad3091874c6f
 system_ext/lib64/libmwqemiptablemgr.so|b45bd5f4e8d0905ea287af059bd7b06df0552127
--vendor/app/CneApp/CneApp.apk|6e355ca21e53c8a84794f06e1057e62ff2df1a58
--vendor/app/IWlanService/IWlanService.apk|08472592f4a21ad806c487fc0c70c10bbe7c7ac2
+vendor/app/CneApp/CneApp.apk|6e355ca21e53c8a84794f06e1057e62ff2df1a58
+vendor/app/IWlanService/IWlanService.apk|08472592f4a21ad806c487fc0c70c10bbe7c7ac2
 vendor/bin/cnd|9073b58b10ec0e5e0af3e0f65dcc815cb2b150b9
 vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml|578f3f8f56059bfdbef926bcc68d01c15e06951f
 vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml|1fb42c672a12b6660bdce3ea94e0c43719dd9de8
@@ -685,7 +685,7 @@ system_ext/lib64/libdpmctmgr.so|d0f29a2beb04ce0461ccc7e6479f061f5b8f195b
 system_ext/lib64/libdpmfdmgr.so|aee72b5021d546774ce8433cab91f5fb0efb2ded
 system_ext/lib64/libdpmframework.so|0042e9d15892b6d16cdae6c4d3da3b4c2dc448a2
 system_ext/lib64/libdpmtcm.so|e4e0c6a979f76727cd0ed1d67950d9b35bbbc17b
--system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|74ec0d8e2ef3d7e3b0a730da9b97237921778ac4
+system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|74ec0d8e2ef3d7e3b0a730da9b97237921778ac4
 vendor/bin/dpmQmiMgr|61a421804559b0e461439c19088acc01b871982a
 vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|d9f1aa7f93b928f42499d613d20ccbc60f279097
@@ -706,8 +706,8 @@ system_ext/etc/sysconfig/config-com.dolby.daxservice.xml|2092151d56b707f3fe0ef68
 system_ext/etc/sysconfig/config-com.motorola.dolby.dolbyui.xml|66ae80afa96e2e04433c2f4b3e92b6e20d64f2ad
 system_ext/framework/com.motorola.motosignature.jar|7873af6b1243e706792b3c0a9e34037c50e62f8a
 system_ext/framework/moto-checkin.jar|97daf710e97d02c7ec2aab58521949b7d32c9a2b
--system_ext/priv-app/MotoDolbyV3/MotoDolbyV3.apk|fdf985f9406420c3c736e0f53875729b
--system_ext/priv-app/daxService/daxService.apk|d40a326ea68b0fae23a7d09cfa40183a
+system_ext/priv-app/MotoDolbyV3/MotoDolbyV3.apk|fdf985f9406420c3c736e0f53875729b
+system_ext/priv-app/daxService/daxService.apk|d40a326ea68b0fae23a7d09cfa40183a
 vendor/bin/hw/vendor.dolby.hardware.dms@1.0-service|7207a97fd3f00c854be4e4ddee98c881c61c2266
 vendor/etc/dolby/dax-default.xml|7161461c833cfe6afd512bf1d5277d933394ddde
 vendor/etc/init/vendor.dolby.hardware.dms@1.0-service.rc|4dd7bfa50d310e67902845faabd47653
@@ -750,7 +750,7 @@ vendor/lib64/libspl.so|f8bbe0322ce06a545f5dc79c888183ac61673b68
 # DRM - Widevine - from Coral - 12/SQ1A.220105.002/7961164
 vendor/bin/hw/android.hardware.drm@1.4-service.widevine|40007c2086cb435d36b38de089cdfa4f38941b4e
 vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc|225dd006bfecf6c1dca6793fa1c13a455ce4eae6
--vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml|91d7c0996133556cb7f7c5d1b7e5d9e7f07b78b2
+vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml|91d7c0996133556cb7f7c5d1b7e5d9e7f07b78b2
 vendor/lib64/libwvhidl.so|8ffc9cfc0ca2abc0e7bbde94c61961b1fef45e6f
 
 # Fingerprint (HIDL) - from vince
@@ -761,7 +761,7 @@ vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc|035243ca6
 vendor/lib64/hw/fingerprint.default.so|07e66268244733eadb117ef5b4fa24651b370e78
 
 # Fingerprint (Extension) - from vince
--vendor/app/FingerprintExtensionService/FingerprintExtensionService.apk|47d6458be8aece1ad609371baa09a1516564b755
+vendor/app/FingerprintExtensionService/FingerprintExtensionService.apk|47d6458be8aece1ad609371baa09a1516564b755
 vendor/etc/permissions/com.fingerprints.extension.xml|de711d8827e1d321b22b60fd75a204e8928f9c6d
 vendor/framework/com.fingerprints.extension.jar|7e972c26a5b51fc13bd4eff6584d40a41c5b09c0
 vendor/lib64/com.fingerprints.extension@1.0.so|61afb9ae3e08d12e9c3c701eaf6fe418fc9bfdde
@@ -793,8 +793,8 @@ vendor/bin/xtra-daemon|e06d564773772e4f341acad4bcd74c4eb0bf2863
 vendor/bin/xtwifi-client|9f64aa6f899b56fe58438b30e340730e1d47bcdb
 vendor/bin/xtwifi-inet-agent|f805841e5c8ca3b0af620486a64a37148daa0980
 vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc|6a70a956838b5070d310acb6cc76181aa1b83be6
--vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml|1c344aacaa6d17a1585ba58b2e6d438dcfe31fad
--vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml|6514b13f55abc0acc28e004c35ff93fb972d61a9
+vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml|1c344aacaa6d17a1585ba58b2e6d438dcfe31fad
+vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml|6514b13f55abc0acc28e004c35ff93fb972d61a9
 vendor/etc/flp.conf|8c8642685c225fa0b715c284481018a527dae451
 vendor/etc/gnss_antenna_info.conf|f0df44f39738a3f712c5e956801494e83c942d77
 vendor/etc/izat.conf|a795b79b68e3705c0334432dded0c0d246f47cb3
@@ -923,10 +923,10 @@ vendor/firmware/a530_pfp.fw|35b72dce880191ff087af2524205afce40ea8c97
 # HotWord Enrollment - from oneplus8pro qssi-user-11-RP1A.201005.001 2107082312 release-keys
 product/etc/permissions/privapp-permissions-hotword.xml|4b2475e0c223fec7c4d81d85b08314324c430953
 product/etc/sysconfig/hotword-hiddenapi-package-whitelist.xml|a062041908164045e8b658d1cc4e8f3302f4bb90
--product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk|aca670c20dfee58a96a471b64ea7d63a0a3fb812
--product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk|59192e638ea3b13ee9005d730ce269db66a4d10a
+product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk|aca670c20dfee58a96a471b64ea7d63a0a3fb812
+product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk|59192e638ea3b13ee9005d730ce269db66a4d10a
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml|563a58554d9c0dd0608552b644fbf74519a447bb
--system_ext/framework/com.android.hotwordenrollment.common.util.jar|bef92589e75a6da6043f85f4b9b0e85866429624
+system_ext/framework/com.android.hotwordenrollment.common.util.jar|bef92589e75a6da6043f85f4b9b0e85866429624
 
 # IRQ Balance - from LA.UM.9.6.2.r1-04200-89xx.0
 vendor/bin/msm_irqbalance|e5706bc0acab394b53fafdc1d7f342f69c6f5649
@@ -984,7 +984,7 @@ vendor/lib/libperipheral_client.so|cee6426ce3629de3488f86eb5ac9de76264e9e17
 vendor/lib64/libperipheral_client.so|0820ee76c595691935b7d8896471ea0b172b0f58
 
 # Power-off alarm - from LA.UM.9.6.2.r1-04200-89xx.0
--product/app/PowerOffAlarm/PowerOffAlarm.apk|bc906abd03e4a243201dde626b6580fd8a4f73ce
+product/app/PowerOffAlarm/PowerOffAlarm.apk|bc906abd03e4a243201dde626b6580fd8a4f73ce
 vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service|6f58edbe898a0582b02b688ec8a47a57a50707ec
 vendor/bin/power_off_alarm|a22dad49a912473d92bf9c111ef7de6dd927b6f2
 vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc|a03a9a1c818595b19272ea6ffb466e23a7fc3b05
@@ -1034,14 +1034,14 @@ vendor/lib64/libqmiservices.so|52770edf3e35f5376f3d0a131636f3213c9e59fa
 
 # Radio - from LA.UM.9.6.3.r1-04400-89xx.0
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml|42f4553b61731e56d253766554d4479519cea3ff
--system_ext/app/QtiTelephonyService/QtiTelephonyService.apk|a32f88ddcc8f9cba18aa5697ee5bd52201e89b13
+system_ext/app/QtiTelephonyService/QtiTelephonyService.apk|a32f88ddcc8f9cba18aa5697ee5bd52201e89b13
 system_ext/etc/permissions/qcrilhook.xml|30397e293b2c40e6b7a1d11c2a615cdd05de625a
 system_ext/etc/permissions/qti_libpermissions.xml|593bcb72cce68ceb0a70f50bcae7d460114e7c62
 system_ext/etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
 system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml|4f0056403f56928b8c75a617ba582f17061f89ae
 system_ext/etc/permissions/telephonyservice.xml|b7831598d3c19c6ce4ef431d1cc44d94c3c35a8d
 system_ext/framework/qcrilhook.jar|f2888f922b8347417dfa86741feb8348795fce6f
--system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|60af440aae61fcd6939af56a0b94d9b9ef5ebd55
+system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|60af440aae61fcd6939af56a0b94d9b9ef5ebd55
 vendor/bin/ATFWD-daemon|ba94a1f2b434f1ae8f536d29b1dbe3d6eea000da
 vendor/bin/adpl|a742bd5fa87d0bf44790e55a67154742b5ee3bfe
 vendor/bin/netmgrd|1561db50ad4c5523ad93df630529790fb04af359
@@ -1131,7 +1131,7 @@ vendor/lib64/qtibus.so|cef56e2d40f69b6b6c60b93edb612744395f7359
 vendor/lib64/qtimutex.so|026d9acf29b23ab0419abfe3066bd4c9f13bf7ae
 
 # Radio (eMBMS) - from LA.UM.9.6.3.r1-04400-89xx.0
--system_ext/app/embms/embms.apk|010db3d97f4faad191f1a53415d7cf0a94dabcd1
+system_ext/app/embms/embms.apk|010db3d97f4faad191f1a53415d7cf0a94dabcd1
 system_ext/etc/permissions/embms.xml|22e7474091f9f71f02dd0cfc76cfa8848a46f079
 system_ext/framework/embmslibrary.jar|b5fe26c1cea597af8a1751332d187f2f574816c1
 system_ext/lib64/libembmsmmosal.so|e208327b968be9710b2dd3628f2aa52271bb6bf1
@@ -1140,7 +1140,7 @@ system_ext/lib64/libembmssqlite.so|b76a706caf1b0b354ff95398b17130bc8ddc05b9
 system_ext/lib64/libembmstinyxml.so|5a998ab8d31e76ccf50a962c493d800483e03ebf
 
 # Radio (IMS) - from LA.UM.9.6.3.r1-04400-89xx.0
--system_ext/app/imssettings/imssettings.apk|8b47c43d56228dcce93cc8c07c6ceb08cb3d2fe5
+system_ext/app/imssettings/imssettings.apk|8b47c43d56228dcce93cc8c07c6ceb08cb3d2fe5
 vendor/bin/imsdatadaemon|476fb2c270ca3352ee41ca3dc8c49b86517830a5
 vendor/bin/imsqmidaemon|44b0d218106ce8124ca6c2cc956c26f7119645ca
 vendor/bin/imsrcsd|bf29aac14856f29268c01599e5f6c7c6ae520685
@@ -1181,7 +1181,7 @@ system_ext/lib64/lib-imsvtutils.so|dfc5cf0854fe38c191a53ec3bd2a322d05d85567
 system_ext/lib64/libimscamera_jni.so|486abdb09a82ccee5e49307a17ba3dc9efdf5e9d
 system_ext/lib64/libimsmedia_jni.so|f8be2575f8eaef8bb89a4bc049381ebffe857831
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so|4cf9e97f526c6278c5e2136e00d1fb800fb941aa
--system_ext/priv-app/ims/ims.apk|bcb4343b282907a642ae888bfaede63e9159894e
+system_ext/priv-app/ims/ims.apk|bcb4343b282907a642ae888bfaede63e9159894e
 vendor/bin/ims_rtp_daemon|3fbadd85fa6057fbc165f149d65854d76c9e5eef
 vendor/etc/init/ims_rtp_daemon_legacy.rc|104b2a879db4d3dd44e74a3d7f6e69f6972c9129
 vendor/etc/seccomp_policy/imsrtp.policy|7ea8b4012da7bde98fc91bd882185b32784793cc
@@ -1219,7 +1219,7 @@ vendor/lib/libthermalfeature.so|b2a90496eb99301cc0f065fe97782358858668a3
 vendor/lib64/libthermalfeature.so|1c408911610e5b6a11853aff1900860f9e9a861f
 
 # Time services - from LA.UM.9.6.2.r1-04200-89xx.0
--vendor/app/TimeService/TimeService.apk|1a5f39aa2969feee50ff81ec870b5e2669ae515e
+vendor/app/TimeService/TimeService.apk|1a5f39aa2969feee50ff81ec870b5e2669ae515e
 vendor/bin/time_daemon|737bbb156a23d114aafd4b4bb9adc38e8d965391
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so|3f57de1aeb7aa113a0a579cebed85ab4405b9b49
@@ -1238,7 +1238,7 @@ bin/wfdservice|96a583c0efeaf90352b26c20c904ee156238b90f
 etc/init/wfdservice.rc|311bfdd1675e56499662f39455536b75b78477bb
 etc/wfdconfig.xml|d07f6b0441c0aa8913865100239490fa8687a020
 etc/wfdconfigsink.xml|5b4a96f251fd83c2eee520d06bea2b5b159fcd36
--framework/WfdCommon.jar|0faa0fdf415b1ecdc92dfe6a52946a3248b7b02b
+framework/WfdCommon.jar|0faa0fdf415b1ecdc92dfe6a52946a3248b7b02b
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so:vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0.so|aa89ab6f11d1d9f22862b8c4076d34172d6f0e8d
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so|aa89ab6f11d1d9f22862b8c4076d34172d6f0e8d
 lib/libmmrtpdecoder.so|ed48114fc443311279189e8b32e44ed0886ac4b6
@@ -1265,7 +1265,7 @@ lib64/libmmrtpdecoder.so|719a126cc557a8512d73e9e148cb9bdfb7830c11
 lib64/libmmrtpencoder.so|df4a7d6679003547cbafe38608d24b434ae23cf9
 lib64/libwfdclient.so|e6cdf9d8e7f561e2cd53c1c54e7d110e5ef95687
 lib64/libwfdnative.so|5b9a929ba23f3163b06f50dc981c93f98350dc46
--priv-app/WfdService/WfdService.apk|b99c24571581465e637c7f6a6efc7c36042e56ea
+priv-app/WfdService/WfdService.apk|b99c24571581465e637c7f6a6efc7c36042e56ea
 vendor/bin/wifidisplayhalservice|5539a269192e5d4012162651118833a726fdec7a
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc|04e463342cbba4c0e9c311a18238f95dec9359fd
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so|97e78ec41b25af26cd9bf91f938bc05325486e8b

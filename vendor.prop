@@ -52,7 +52,7 @@ vendor.voice.voip.conc.disabled=true
 # Audio dynamic feature flags
 vendor.audio.feature.anc_headset.enable=true
 vendor.audio.feature.compress_meta_data.enable=false
-vendor.audio.feature.compr_voip.enable=true
+vendor.audio.feature.compr_voip.enable=false
 vendor.audio.feature.custom_stereo.enable=true
 vendor.audio.feature.fluence.enable=true
 vendor.audio.feature.fm.enable=true

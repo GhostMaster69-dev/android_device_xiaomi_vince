@@ -16,6 +16,9 @@ type netmgr_data_file, file_type, data_file_type;
 # /proc
 type proc_swap, fs_type;
 
+# /proc/last_kmsg
+type proc_last_kmsg, fs_type, proc_type;
+
 # Power
 type debugfs_sched_features, debugfs_type, fs_type;
 type proc_sysctl_autogroup, proc_type, fs_type;

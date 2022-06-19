@@ -30,3 +30,6 @@ allow system_server sysfs_vibrator:file read;
 allow system_server app_zygote:process { getattr getpgid };
 
 get_prop(system_server, camera_prop)
+
+# /proc/last_kmsg
+allow system_server proc_last_kmsg:file r_file_perms;

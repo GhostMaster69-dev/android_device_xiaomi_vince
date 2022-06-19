@@ -19,3 +19,7 @@ allow init firmware_file:filesystem getattr;
 allow init sysfs_leds:lnk_file read;
 
 allow init sysfs:file setattr;
+
+# /proc/last_kmsg
+allow init proc_last_kmsg:file r_file_perms;
+allow init proc_last_kmsg:file setattr;

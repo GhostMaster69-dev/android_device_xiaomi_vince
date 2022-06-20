@@ -1,4 +1,5 @@
 allow surfaceflinger bootanim:dir r_dir_perms;
+allow surfaceflinger bootanim:file r_file_perms;
 allow surfaceflinger device:chr_file ioctl;
 allow surfaceflinger firmware_file:dir search;
 r_dir_file(surfaceflinger, sysfs_kgsl)

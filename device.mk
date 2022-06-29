@@ -248,6 +248,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libwifi-hal-ctrl
 
+# Google LILY_EXPERIENCE feature
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/lily_experience.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/lily_experience.xml
+
 # Google Photos Unlimited Storage
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml

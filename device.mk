@@ -238,11 +238,6 @@ PRODUCT_PACKAGES += \
     libshims_gxfpd \
     android.hardware.biometrics.fingerprint@2.1
 
-# FM
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfm_jni
-
 # Fwk-detect
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \

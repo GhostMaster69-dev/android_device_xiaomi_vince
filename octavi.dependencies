@@ -8,18 +8,6 @@
         "target_path":  "vendor/xiaomi/vince"
     },
     {
-        "repository":   "GhostMaster69-dev/android_packages_apps_CameraGo",
-	"remote":       "github",
-	"target_path":  "packages/apps/CameraGo",
-	"branch":       "main"
-    },
-    {
-        "repository":   "GhostMaster69-dev/android_packages_apps_FMRadio",
-	"remote":       "github",
-	"target_path":  "packages/apps/FMRadio",
-	"branch":       "12"
-    },
-    {
         "repository":   "GhostMaster69-dev/cosmic-clang",
         "remote":       "github",
         "target_path":  "prebuilts/clang/host/linux-x86/clang-cosmic",

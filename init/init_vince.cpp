@@ -70,6 +70,16 @@ void property_override(char const prop[], char const value[], bool add = true)
     }
 }
 
+void set_avoid_gfxaccel_config() {
+    struct sysinfo sys;
+    sysinfo(&sys);
+
+    if (sys.totalram <= 3072ull * 1024 * 1024) {
+       // Reduce memory footprint
+       property_override("ro.config.avoid_gfx_accel", "true");
+    }
+}
+
 void vendor_load_properties()
 {
     check_device();
@@ -80,4 +90,5 @@ void vendor_load_properties()
     property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);
+    set_avoid_gfxaccel_config();
 }

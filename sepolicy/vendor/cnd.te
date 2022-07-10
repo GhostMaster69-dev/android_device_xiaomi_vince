@@ -7,3 +7,4 @@ allow cnd hostapd:process { sigkill };
 allow cnd sysfs:file { open read };
 
 allow cnd hal_mwqemadapter_hwservice:hwservice_manager { find };
+add_hwservice(cnd, hal_mwqemadapter_hwservice)

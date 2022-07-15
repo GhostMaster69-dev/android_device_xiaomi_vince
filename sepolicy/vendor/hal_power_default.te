@@ -41,3 +41,6 @@ allow hal_power_default system_server:process setsched;
 
 allow hal_power_default sysfs_graphics:dir search;
 allow hal_power_default sysfs_graphics:file r_file_perms;
+
+# DT2W
+allow hal_power_default sysfs_ts:file rw_file_perms;

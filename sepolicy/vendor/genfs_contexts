@@ -1,3 +1,6 @@
+# DT2W
+genfscon sysfs /devices/platform/soc/78b7000.i2c/i2c-3/3-0020/input/input1/wake_gesture		u:object_r:sysfs_ts:s0
+
 # Leds
 genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00/200f000.qcom,spmi:qcom,pm8953@0:qcom,leds@a100                       u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/soc/78b6000.i2c/i2c-2/2-0045/leds/                                                                         u:object_r:sysfs_leds:s0

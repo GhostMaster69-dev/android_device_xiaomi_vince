@@ -180,7 +180,7 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     libui_shim \
     libdng_sdk.vendor \
-    Camera
+    GrapheneCamera
 
 # Component overrides
 PRODUCT_COPY_FILES += \

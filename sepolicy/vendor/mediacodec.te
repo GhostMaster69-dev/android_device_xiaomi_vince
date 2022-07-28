@@ -1,2 +1,4 @@
 # Audio props
 get_prop(mediacodec, vendor_audio_prop)
+
+hal_client_domain(mediacodec, hal_power);

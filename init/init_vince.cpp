@@ -46,7 +46,7 @@ void check_device()
 
     sysinfo(&sys);
 
-    if (sys.totalram > 2048ull * 1024 * 1024) {
+    if (sys.totalram > 3072ull * 1024 * 1024) {
         // from phone-xhdpi-4096-dalvik-heap.mk
         heaptargetutilization = "0.6";
         heapminfree = "8m";
@@ -84,9 +84,6 @@ void vendor_load_properties()
 {
     check_device();
 
-    property_override("dalvik.vm.heapstartsize", "8m");
-    property_override("dalvik.vm.heapgrowthlimit", "192m");
-    property_override("dalvik.vm.heapsize", "512m");
     property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);

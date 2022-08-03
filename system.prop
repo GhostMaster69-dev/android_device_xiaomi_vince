@@ -152,6 +152,9 @@ ro.telephony.default_network=22,22
 # Watchdog
 ro.hw_timeout_multiplier=3
 
+# USB
+persist.sys.usb.config.extra=none
+
 # WiFi
 persist.mm.sta.enable=0
 

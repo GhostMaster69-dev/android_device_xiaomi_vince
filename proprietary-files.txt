@@ -925,14 +925,6 @@ vendor/firmware/a530_pm4.fw|b1cf625b5552b99839687f479c124ac5daca2ca2
 # Graphics firmware - from LA.UM.9.6.2.r1-04200-89xx.0
 vendor/firmware/a530_pfp.fw|35b72dce880191ff087af2524205afce40ea8c97
 
-# HotWord Enrollment - from oneplus8pro qssi-user-11-RP1A.201005.001 2107082312 release-keys
-product/etc/permissions/privapp-permissions-hotword.xml|4b2475e0c223fec7c4d81d85b08314324c430953
-product/etc/sysconfig/hotword-hiddenapi-package-whitelist.xml|a062041908164045e8b658d1cc4e8f3302f4bb90
-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk|aca670c20dfee58a96a471b64ea7d63a0a3fb812
-product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk|59192e638ea3b13ee9005d730ce269db66a4d10a
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml|563a58554d9c0dd0608552b644fbf74519a447bb
-system_ext/framework/com.android.hotwordenrollment.common.util.jar|bef92589e75a6da6043f85f4b9b0e85866429624
-
 # IRQ Balance - from LA.UM.9.6.2.r1-04200-89xx.0
 vendor/bin/msm_irqbalance|e5706bc0acab394b53fafdc1d7f342f69c6f5649
 vendor/etc/msm_irqbalance.conf|f7d3ff4c1951cc88a9a5f1ac03819e249d129619

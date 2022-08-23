@@ -99,7 +99,6 @@ bluetooth.profile.opp.enabled?=true
 bluetooth.profile.pan.nap.enabled?=true
 bluetooth.profile.pan.panu.enabled?=true
 bluetooth.profile.pbap.server.enabled?=true
-bluetooth.profile.sap.server.enabled?=true
 
 # Boot
 sys.vendor.shutdown.waittime=500

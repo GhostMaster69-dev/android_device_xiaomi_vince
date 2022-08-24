@@ -32,3 +32,5 @@ set_prop(hal_fingerprint_default, vendor_fp_prop)
 
 # Allow fp to read boot status prop
 get_prop(hal_fingerprint_default, boot_status_prop)
+
+dontaudit hal_fingerprint_default default_android_vndservice:service_manager find;

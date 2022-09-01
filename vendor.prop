@@ -161,6 +161,11 @@ persist.sys.binary_xml=false
 # Tcp
 net.tcp.2g_init_rwnd=10
 
+# USB
+sys.usb.rmnet.func.name=rmnet_bam
+sys.usb.rmnet.inst.name=rmnet
+sys.usb.rndis.func.name=rndis_bam
+
 # Wifi
 wifi.interface=wlan0
 

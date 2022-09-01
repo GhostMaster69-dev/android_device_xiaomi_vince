@@ -106,9 +106,6 @@
         <device name="SND_DEVICE_IN_CAMCORDER_TMIC_FAR_END" acdb_id="599"/>
         <device name="SND_DEVICE_IN_CAMCORDER_TMIC_NEAR_END" acdb_id="1111"/>
 
-        <!-- microphone fix -->
-        <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="1"/>
-        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC" acdb_id="1"/>
     </acdb_ids>
 
     <backend_names>

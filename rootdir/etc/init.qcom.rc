@@ -149,14 +149,6 @@ on boot
     # Create hvdcp_opti directory
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
-    # Sound Control
-    chown system system /sys/kernel/sound_control/earpiece_gain
-    chmod 0660 /sys/kernel/sound_control/earpiece_gain
-    chown system system /sys/kernel/sound_control/headphone_gain
-    chmod 0660 /sys/kernel/sound_control/headphone_gain
-    chown system system /sys/kernel/sound_control/mic_gain
-    chmod 0660 /sys/kernel/sound_control/mic_gain
-
     # Restore default I/O tuning
     write /sys/block/mmcblk0/queue/scheduler "cfq"
     write /sys/block/mmcblk0/queue/nr_requests 128

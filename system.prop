@@ -15,7 +15,6 @@ vendor.fastrpc.disable.adsprpcd_sensorspd.daemon=1
 ro.bluetooth.hfp.ver=1.7
 
 # Blurs
-persist.sys.sf.disable_blurs=1
 ro.launcher.blur.appLaunch=0
 ro.surface_flinger.supports_background_blur=1
 ro.sf.blurs_are_expensive=1

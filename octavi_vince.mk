@@ -48,15 +48,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/aosp_excluded_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/aosp_excluded_hardware.xml
 
 # Device identifier. This must come after all inclusions
+PRODUCT_BRAND := xiaomi
 PRODUCT_DEVICE := vince
-PRODUCT_NAME := octavi_vince
-PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi 5 Plus
 PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_MODEL := Redmi 5 Plus
+PRODUCT_NAME := octavi_vince
+PRODUCT_SYSTEM_NAME := vince
 TARGET_VENDOR := Xiaomi
 BOARD_VENDOR := Xiaomi
-
-PRODUCT_SYSTEM_NAME := vince
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 

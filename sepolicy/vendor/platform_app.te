@@ -3,7 +3,4 @@ dontaudit platform_app hal_power_service:service_manager { find };
 allow platform_app hal_alarm_qti_default:binder call;
 allow platform_app hal_alarm_qti_hwservice:hwservice_manager find;
 
-# FPS Info
-allow platform_app sysfs_fps:file { getattr open read };
-
 get_prop(platform_app, camera_prop)

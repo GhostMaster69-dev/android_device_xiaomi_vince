@@ -147,7 +147,6 @@ ro.vendor.perf.scroll_opt=true
 
 # Radio
 persist.radio.multisim.config=dsds
-persist.sys.fflag.override.settings_provider_model=false
 persist.vendor.data.iwlan.enable=true
 persist.vendor.radio.add_power_save=1
 persist.vendor.radio.aosp_usr_pref_sel=true

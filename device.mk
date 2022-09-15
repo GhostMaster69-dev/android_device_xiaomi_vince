@@ -102,7 +102,7 @@ WITH_DEXPREOPT_DEBUG_INFO := false
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.0-impl:32 \
+    android.hardware.audio@7.1-impl:32 \
     android.hardware.audio.effect@7.0-impl:32 \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio-impl:32 \

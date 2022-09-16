@@ -22,7 +22,7 @@
 <resources>
 
     <!-- Default paddings for content around the corners. -->
-    <dimen name="rounded_corner_content_padding">6dp</dimen>
+    <dimen name="rounded_corner_content_padding">10dp</dimen>
 
     <!-- the padding on the start of the statusbar -->
     <dimen name="status_bar_padding_start">0dp</dimen>

@@ -579,9 +579,6 @@ vendor/etc/camera/vince_ov5675_ofilm_chromatix_india.xml|e7e90221ea1b0687b614233
 vendor/etc/camera/vince_ov5675_qtech_chromatix.xml|79c2f9c2275e0da609b9c1ad9b6256bd19f2a19b
 vendor/etc/camera/vince_ov5675_qtech_chromatix_india.xml|3c77bcceec7d5d48ac082c6846b41577506d29eb
 
-# Camera firmware - from LA.UM.9.6.2.r1-04200-89xx.0
-vendor/firmware/cpp_firmware_v1_5_0.fw|ac19cd179b7b118bb3ea01a35fdfc78dc58164a1
-
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_12_0.fw

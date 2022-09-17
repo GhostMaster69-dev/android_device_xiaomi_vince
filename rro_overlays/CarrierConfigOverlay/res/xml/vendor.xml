@@ -61,8 +61,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
              FALSE - default capabilities will be retained
              TRUE - remove modify call capabilities which will hide modify call button -->
         <boolean name="remove_modify_call_capability" value="false" />
-        <!-- Show 4G icon instead of LTE icon -->
-        <boolean name="show_4g_for_lte_data_icon_bool" value="true"/>
         <!-- Config to show/hide Video quality toast -->
         <boolean name="show_video_quality_toast" value="true"/>
         <!-- Config to show/hide call session event toast like player start/stop -->

@@ -27,9 +27,6 @@
 /dev/lirc[0-9]*					u:object_r:lirc_device:s0
 /dev/peel_ir					u:object_r:lirc_device:s0
 
-# Live Display
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_vince                  u:object_r:hal_lineage_livedisplay_qti_exec:s0
-
 # Legacy root dirs
 /firmware(/.*)?                                 u:object_r:firmware_file:s0
 /persist(/.*)?                                  u:object_r:mnt_vendor_file:s0

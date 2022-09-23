@@ -277,7 +277,7 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
     ims-ext-common \
     ims_ext_common.xml \
-    libims-shim
+    libgui_shim
 
 # IPA Manager
 PRODUCT_PACKAGES += \

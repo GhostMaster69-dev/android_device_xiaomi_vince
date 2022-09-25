@@ -216,11 +216,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += Settings
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4-service.clearkey \
-    android.hardware.drm@1.3.vendor \
-    android.hardware.drm@1.2.vendor \
-    android.hardware.drm@1.1.vendor \
-    android.hardware.drm@1.0.vendor
+    android.hardware.drm@1.4-service.clearkey
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -240,15 +236,13 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
 
+# GNNS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@2.1.vendor
+
 # GPS
 PRODUCT_PACKAGES += \
-    libcurl \
-    android.hardware.gnss@1.0.vendor \
-    android.hardware.gnss@1.1.vendor \
-    android.hardware.gnss@1.2.vendor \
-    android.hardware.gnss@2.0.vendor \
-    android.hardware.gnss@2.1.vendor \
-    android.hardware.gnss@3.0.vendor
+    libcurl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf

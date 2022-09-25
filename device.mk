@@ -223,13 +223,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.1.vendor \
     android.hardware.drm@1.0.vendor
 
-# Google Photos
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/configs/gpfspath_oem_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gpfspath_oem_config.xml
-
 # Fingerprint
 PRODUCT_PACKAGES += \
     fakelogprint \
@@ -263,6 +256,14 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libwifi-hal-ctrl
+
+# Google Photos Unlimited Storage
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
+
+# GPFS Oem configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gpfspath_oem_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gpfspath_oem_config.xml
 
 # Healthd
 PRODUCT_PACKAGES += \

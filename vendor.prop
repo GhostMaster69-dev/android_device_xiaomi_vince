@@ -77,10 +77,6 @@ ro.vendor.bluetooth.wipower=false
 # Boot
 sys.vendor.shutdown.waittime=500
 
-# Camera
-persist.vendor.camera.CDS=off
-persist.vendor.camera.video.CDS=off
-
 # Cne
 persist.vendor.cne.feature=1
 persist.vendor.mwqem.enable=1

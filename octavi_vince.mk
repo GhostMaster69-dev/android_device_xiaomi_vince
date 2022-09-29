@@ -52,6 +52,7 @@ PRODUCT_NAME := octavi_vince
 PRODUCT_SYSTEM_NAME := vince
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+PRODUCT_OVERRIDE_GMS_FINGERPRINT := xiaomi/vince/vince:8.1.0/OPM1.171019.019/V11.0.2.0.OEGMIXM:user/release-keys
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="vince-user $(PLATFORM_VERSION) $(BUILD_ID) $(shell date -u +%s) release-keys" \

@@ -54,8 +54,6 @@ PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Redmi 5 Plus
 PRODUCT_NAME := octavi_vince
 PRODUCT_SYSTEM_NAME := vince
-TARGET_VENDOR := Xiaomi
-BOARD_VENDOR := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 

@@ -194,7 +194,6 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     libvulkan \
     vendor.display.config@1.0.vendor \
-    vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.mapper@2.0.vendor
 
 # Dex preopt
@@ -361,7 +360,6 @@ PRODUCT_PACKAGES += \
     libOmxEvrcEnc \
     libOmxG711Enc \
     libOmxQcelp13Enc \
-    libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw \
@@ -418,7 +416,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.secure_element@1.2.vendor \
-    libcnefeatureconfig \
     librmnetctl \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \

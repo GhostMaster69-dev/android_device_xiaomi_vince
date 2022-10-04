@@ -74,8 +74,8 @@ LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/stack/mm-camera-interface/inc \
         $(LOCAL_PATH)/util \
         $(LOCAL_PATH)/HAL3 \
-	$(LOCAL_PATH)/../../qcom-caf/media/libstagefrighthw \
-        $(LOCAL_PATH)/../../qcom-caf/media/mm-core/inc \
+        $(LOCAL_PATH)/../../media/libstagefrighthw \
+        $(LOCAL_PATH)/../../media/mm-core/inc \
         $(TARGET_OUT_HEADERS)/mm-camera-lib/cp/prebuilt
 
 LOCAL_HEADER_LIBRARIES := media_plugin_headers
@@ -107,7 +107,7 @@ endif
 
 #LOCAL_STATIC_LIBRARIES := libqcamera2_util
 LOCAL_C_INCLUDES += \
-        $(LOCAL_PATH)/../../qcom-caf/display/libqservice
+        $(LOCAL_PATH)/../../display/libqservice
 LOCAL_SHARED_LIBRARIES := liblog libhardware libutils libcutils libdl libsync
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata
 LOCAL_SHARED_LIBRARIES += libqdMetaData libqservice libbinder

@@ -112,7 +112,7 @@ ro.vendor.qti.va_aosp.support=1
 
 # Radio
 persist.radio.aosp_usr_pref_sel=true
-persist.rcs.supported=0
+persist.rcs.supported=1
 
 # Time
 persist.backup.ntpServer=0.pool.ntp.org

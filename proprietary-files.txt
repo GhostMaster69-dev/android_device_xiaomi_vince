@@ -1103,6 +1103,7 @@ vendor/lib64/qtibus.so|cef56e2d40f69b6b6c60b93edb612744395f7359
 vendor/lib64/qtimutex.so|026d9acf29b23ab0419abfe3066bd4c9f13bf7ae
 
 # Radio - from thyme 12/SKQ1.210908.001/21.10.12
+system_ext/app/ImsRcsService/ImsRcsService.apk|09ecb5757d945b7761ddbf23f1de1ffb2dafde88
 vendor/lib64/deviceInfoServiceModule.so|1e84499c340b41a2c9c1000aa95c4651a1b6fdd8
 
 # Radio (eMBMS) - from LA.UM.9.6.3.r1-04400-89xx.0

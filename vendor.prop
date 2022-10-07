@@ -139,6 +139,9 @@ drm.service.enabled=true
 # Frp
 ro.frp.pst=/dev/block/bootdevice/by-name/config
 
+# Launcher3
+ro.launcher.blur.appLaunch=false
+
 # Media
 debug.stagefright.omx_default_rank=0
 media.stagefright.thumbnail.prefer_hw_codecs=true

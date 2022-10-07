@@ -14,7 +14,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Burn in protection -->
-    <bool name="config_statusBarBurnInProtection">false</bool>
+    <bool name="config_disableStatusBarBurnInProtection">true</bool>
 
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">4</integer>

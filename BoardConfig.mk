@@ -164,9 +164,6 @@ TARGET_USES_OLD_MNC_FORMAT := true
 include device/xiaomi/vince/sepolicy/qcom-caf/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
-# SurfaceFlinger
-TARGET_USE_AOSP_SURFACEFLINGER := true
-
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_VNDK_VERSION := current

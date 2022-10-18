@@ -562,17 +562,6 @@
     <!-- If this is true, device supports Sustained Performance Mode. -->
     <bool name="config_sustainedPerformanceModeSupported">true</bool>
 
-    <!-- We dont not have a multicolored LED -->
-    <bool name="config_multiColorBatteryLed">false</bool>
-
-    <!-- Do the battery/notification LEDs support pulsing?
-         Used to decide if we show pulse settings -->
-    <bool name="config_ledCanPulse">true</bool>
-
-    <!-- Default value for whether or not to pulse the notification LED when there is a
-         pending notification -->
-    <bool name="def_notification_pulse">true</bool>
-
     <!-- Enable the RingtonePickerActivity in 'com.android.providers.media'. -->
     <bool name="config_defaultRingtonePickerEnabled">true</bool>
 

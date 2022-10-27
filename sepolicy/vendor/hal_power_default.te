@@ -28,6 +28,9 @@ allow hal_power_default sysfs_devfreq:lnk_file r_file_perms;
 allow hal_power_default sysfs_kgsl:file rw_file_perms;
 allow hal_power_default sysfs_kgsl:lnk_file r_file_perms;
 
+# Connect to PPS
+unix_socket_connect(hal_power_default, pps, mm-pp-daemon)
+
 # To get/set powerhal state property
 set_prop(hal_power_default, vendor_power_prop)
 

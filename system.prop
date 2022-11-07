@@ -81,6 +81,14 @@ persist.vendor.ims.disableQXDMLogs=1
 # IORap prefetching
 persist.device_config.runtime_native_boot.iorap_readahead_enable=true
 
+# Logs
+persist.log.tag.BoundBrokerSvc=S
+persist.log.tag.GoogleInputMethodService=S
+persist.log.tag.QC-time-services=S
+persist.log.tag.Tethering=S
+persist.log.tag.WindowManager=S
+persist.log.tag.ziparchive=S
+
 # Media
 av.debug.disable.pers.cache=1
 media.aac_51_output_enabled=true

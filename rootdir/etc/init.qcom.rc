@@ -266,6 +266,9 @@ on property:sys.boot_completed=1
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
 
+    # Enable suspend to RAM
+    write /sys/power/mem_sleep "deep"
+
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
 

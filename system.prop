@@ -85,6 +85,7 @@ persist.device_config.runtime_native_boot.iorap_readahead_enable=true
 persist.log.tag.BoundBrokerSvc=S
 persist.log.tag.GoogleInputMethodService=S
 persist.log.tag.QC-time-services=S
+persist.log.tag.RefreshRateConfigs=S
 persist.log.tag.Tethering=S
 persist.log.tag.WindowManager=S
 persist.log.tag.ziparchive=S

@@ -261,6 +261,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
 
+# Google Deskclock permission
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/default-permissions/default-permissions_com.google.android.deskclock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions_com.google.android.deskclock.xml
+
 # Google GMS Game Service
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sysconfig/game_service.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/game_service.xml

@@ -9,6 +9,9 @@
 /dev/socket/fpce(/.*)?                          u:object_r:fpce_socket:s0
 /sys/devices/(platform)?/soc/soc:fpc1020(/.*)?  u:object_r:fpc_sysfs:s0
 
+# FPS info
+/sys/devices/virtual/graphics/fb0/measured_fps  u:object_r:sysfs_graphics:s0
+
 # Glove Mode
 /sys/class/tp_glove/device(/.*)?		u:object_r:proc_touchpanel:s0
 /sys/devices/virtual/tp_glove(/.*)?		u:object_r:proc_touchpanel:s0

@@ -32,3 +32,17 @@ cc_library_shared {
         "libutils",
     ],
 }
+
+// IMS
+cc_defaults {
+   name: "libgui_shim_defaults",
+   shared_libs: ["libutils"],
+   srcs: ["GraphicBufferProducer.cpp","SurfaceComposerClient.cpp"],
+}
+
+cc_library {
+   name: "libgui_shim",
+   defaults: ["libgui_shim_defaults"],
+   shared_libs: ["libgui"],
+   system_ext_specific: true,
+}

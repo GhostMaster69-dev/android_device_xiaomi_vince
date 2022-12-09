@@ -44,5 +44,7 @@
 	<item>storage_native_boot/take_over_get_content=true</item>
 	<!-- Enable protected by android banner -->
 	<item>privacy/safety_protection_enabled=true</item>
+	<!-- Enable the new and advanced Privacy Hub -->
+	<item>privacy/safety_center_is_enabled=true</item>
     </string-array>
 </resources>

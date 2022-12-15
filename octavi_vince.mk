@@ -42,6 +42,7 @@ USE_PIXEL_CHARGER := true
 
 # Build Status
 OCTAVI_BUILD_TYPE := Official
+OCTAVI_MAINTAINER := GhostMaster69-dev
 
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := xiaomi

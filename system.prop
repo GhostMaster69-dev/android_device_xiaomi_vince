@@ -120,13 +120,11 @@ persist.backup.ntpServer=0.pool.ntp.org
 persist.timed.enable=true
 
 # Telephony
-rild.libargs=-d /dev/smd0
 ril.subscription.types=NV,RUIM
 ro.telephony.block_binder_thread_on_incoming_calls=false
 ro.telephony.call_ring.multiple=false
 service.qti.ims.enabled=1
 telephony.lteOnCdmaDevice=1
-vendor.rild.libargs=-d /dev/smd0
 vendor.service.qti.ims.enabled=1
 #
 # Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode

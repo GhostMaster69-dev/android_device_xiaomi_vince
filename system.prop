@@ -120,7 +120,6 @@ persist.backup.ntpServer=0.pool.ntp.org
 persist.timed.enable=true
 
 # Telephony
-DEVICE_PROVISIONED=1
 rild.libargs=-d /dev/smd0
 ril.subscription.types=NV,RUIM
 ro.telephony.block_binder_thread_on_incoming_calls=false

@@ -201,7 +201,7 @@ PRODUCT_PACKAGES += \
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStep \
+    DerpLauncherQuickStep \
     Settings
 
 # Doze

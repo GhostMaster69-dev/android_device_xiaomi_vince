@@ -21,20 +21,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from vince device
 $(call inherit-product, device/xiaomi/vince/device.mk)
 
-# Inherit some common Octavi stuff.
-$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
+# Inherit some common DerpFest stuff.
+$(call inherit-product, vendor/derp/config/common_full_phone.mk)
 
-# Include Octavi specific sepolicy
--include device/octavi/sepolicy/qcom/sepolicy.mk
+# Include DerpFest specific sepolicy
+-include device/derp/sepolicy/qcom/sepolicy.mk
 
-# Build Status
-OCTAVI_BUILD_TYPE := OFFICIAL
-OCTAVI_MAINTAINER := GhostMaster69-dev
+# Boot Animation
+USE_LEGACY_BOOTANIMATION := true
 
-# Gapps
-ifneq ($(TARGET_WITH_MINI_GAPPS), false)
-USE_GAPPS := true
-WITH_GAPPS := true
+# Remove Gapps
+ifneq ($(WITH_GMS), false)
 PRODUCT_PACKAGES += RemovePackages
 endif
 
@@ -43,7 +40,7 @@ PRODUCT_BRAND := xiaomi
 PRODUCT_DEVICE := vince
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Redmi 5 Plus
-PRODUCT_NAME := octavi_vince
+PRODUCT_NAME := derp_vince
 PRODUCT_SYSTEM_NAME := vince
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi

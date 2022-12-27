@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2023 DerpFest
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Whether to cancel fingerprint operation if not idle -->
+    <bool name="config_fpCancelIfNotIdle">true</bool>
+    
+    <!-- The list of components which should be automatically disabled for a specific device.
+         Note: this MUST not be used to randomly disable components, ask for approval first! -->
+    <string-array name="config_deviceDisabledComponents" translatable="false">
+        <item>com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver</item>
+	<item>com.google.android.gms/.stats.service.DropBoxEntryAddedReceiver</item>
+	<item>com.google.android.gms/com.google.android.gms.chimera.GmsIntentOperationService$GmsExternalReceiver</item>
+	<item>com.google.android.gms/com.google.android.gms.update.OtaSuggestionSummaryProvider</item>
+	<item>com.google.android.gms/com.google.android.gms.update.phone.PopupDialog</item>
+    </string-array>
+</resources>

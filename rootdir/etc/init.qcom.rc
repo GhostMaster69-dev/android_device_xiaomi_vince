@@ -109,6 +109,9 @@ on boot
     mkdir /mnt/vendor/persist/time 0770 system system
     mkdir /mnt/vendor/persist/secnvm 0770 system system
 
+    # Disable surfaceflinger prime_shader_cache
+    setprop service.sf.prime_shader_cache 0
+
     # Enable qcrild and data services on boot so process starts in main
     enable vendor.qcrild
     enable vendor.qcrild2
@@ -268,6 +271,9 @@ on property:sys.boot_completed=1
 
     # Enable suspend to RAM
     write /sys/power/mem_sleep "deep"
+
+    # Enable surfaceflinger prime_shader_cache
+    setprop service.sf.prime_shader_cache 1
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd

@@ -87,6 +87,7 @@ persist.log.tag.GoogleInputMethodService=S
 persist.log.tag.QC-time-services=S
 persist.log.tag.RefreshRateConfigs=S
 persist.log.tag.Tethering=S
+persist.log.tag.ThermalEngine=S
 persist.log.tag.WindowManager=S
 persist.log.tag.ziparchive=S
 

@@ -1,21 +1,21 @@
-# ADSP - from LA.UM.9.6.2.r1-04200-89xx.0
-vendor/bin/adsprpcd|c8a45eb83a6d70dcbcc1b8ec574391b49e8ca8b9
-vendor/bin/dspservice|c7809e32581d5c6efac65a3a7689f43526c17bb8
+# ADSP - from LA.UM.10.6.2.r1-01600-89xx.0
+vendor/bin/adsprpcd|b5c392085cc2d3b3f88bb33a6ef904f61c349761
+vendor/bin/dspservice|4ea49e1d95df172efe99e49d66c4a2cc485bd01d
 vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc|8f0eb84d3eb5fc0f683ef7b975b75044d56f513e
 vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|fbf2bb38ca6bdddf98c7123da9e1f263a4eec55f
 vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy|f060101b26d3674bb173e5fc95e118f56a8ac15d
-vendor/lib/libadsp_default_listener.so|d34ee56137899b914b70d1933d6bdcabde8d8220
-vendor/lib/libadsprpc.so|6156edc1744ddf2bcee00ace27a7183bb0c287f9
-vendor/lib/libfastcvadsp_stub.so|70772d0bc39617430e27a21f89fccd93cc757185
-vendor/lib/libfastcvopt.so|bfda931000e8a8e7dd167d3c47677e5d092aedc8
-vendor/lib/libmdsprpc.so|8f33856ebb848750e1819c166215db9af5f6cb79
-vendor/lib/vendor.qti.hardware.dsp@1.0.so|3326828ea7f6f8139429d2cd0379e80f5ca5178d
-vendor/lib64/libadsp_default_listener.so|aa3b51b544032a250ab02687c0200152f80a23dd
-vendor/lib64/libadsprpc.so|58b7feab8173726837428ab58cd958e6b56fa1b5
-vendor/lib64/libfastcvadsp_stub.so|f4535845bc4f40e3cb8e79d090e5ed87b0acfbb0
-vendor/lib64/libfastcvopt.so|487fc5c4b486579c11af0570d4a99507099ee6f2
-vendor/lib64/libmdsprpc.so|7d16c9824bda0a94ce5e68099c4c8ccfb1c545c5
-vendor/lib64/vendor.qti.hardware.dsp@1.0.so|95b26a4a29f1443ec389be6ca80151a0aec96b36
+vendor/lib/libadsp_default_listener.so|741d25867a2c4a35c962eac9f4df68b67b0ffbfc
+vendor/lib/libadsprpc.so|e8445f2ddd0d561f9221fe0678092c9b17e9b230
+vendor/lib/libfastcvadsp_stub.so|65a05f1459852af23abd66f11c8b6fa6464beff3
+vendor/lib/libfastcvopt.so|69e333756b220f603d64435f1d7db4f772238114
+vendor/lib/libmdsprpc.so|fbeb913d9863cfe8c389c15b150066f5f0468860
+vendor/lib/vendor.qti.hardware.dsp@1.0.so|e865a07eb685f058e6f1c644f8e7928ff6754009
+vendor/lib64/libadsp_default_listener.so|7f722dfabfa0d5998c5a45c0cb1143fc9ab2d558
+vendor/lib64/libadsprpc.so|8053faeaa1ea0a67668cc43722cccff31bf3af4d
+vendor/lib64/libfastcvadsp_stub.so|2f6cdb7466e67d2f4ac2026c8b6e913226621a34
+vendor/lib64/libfastcvopt.so|a4f2ef3e19c21bc643e3faef3fe713507d537821
+vendor/lib64/libmdsprpc.so|981a4a4bd2940f4bf6393bce051a753a35f6d088
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|06b48413ec08c440186bc5e1dccf68c8d466f669
 
 # ADSP modules - from LA.UM.9.6.2.r1-04200-89xx.0
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so|677d2932dac248049f031fc5893163e22b49439a

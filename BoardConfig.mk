@@ -155,9 +155,8 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.recovery.qcom
 ENABLE_VENDOR_RIL_SERVICE := true
 TARGET_USES_OLD_MNC_FORMAT := true
 
-# SELinux
-include device/xiaomi/vince/sepolicy/qcom-caf/SEPolicy.mk
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+# Selinux
+include device/xiaomi/vince/sepolicy/SEPolicy.mk
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true

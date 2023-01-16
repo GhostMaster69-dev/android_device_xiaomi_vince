@@ -39,9 +39,6 @@ userdebug_or_eng(`
   # IMS use camera daemon to make VT call
   allow mm-qcamerad port:tcp_socket name_bind;
   allow mm-qcamerad self:tcp_socket { accept listen };
-
-  # mm-qcamerad needs to set persist.camera. property
-  set_prop(mm-qcamerad, camera_prop)
 ')
 
 #Communicate with user land process through domain socket

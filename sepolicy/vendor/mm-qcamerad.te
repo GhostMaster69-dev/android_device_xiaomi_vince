@@ -12,3 +12,4 @@ allow mm-qcamerad system_server:unix_stream_socket { read write };
 allow mm-qcamerad vfat:dir { search };
 
 get_prop(mm-qcamerad, camera_prop)
+set_prop(mm-qcamerad, camera_prop)

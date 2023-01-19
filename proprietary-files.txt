@@ -26,9 +26,9 @@ vendor/lib/rfsa/adsp/libfastcvadsp_skel.so|1ff4a48009e88435d93fd2b9b0c5ea59cedbb
 vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so|944169db3ac67056b92ef4f850f69346958370b5
 vendor/lib/rfsa/adsp/libscveT2T_skel.so|91b9200dbb982abf0d6b440668252d892a616f66
 
-# ANT+ - from LA.UM.9.6.2.r1-04200-89xx.0
-system_ext/lib64/com.qualcomm.qti.ant@1.0.so|7fffcdca309796183708d9e345d3cd97461d901d
-vendor/lib64/hw/com.dsi.ant@1.0-impl.so|b5c57fdf48447c68b6308fdcb167d0d21b5c56ed
+# ANT+ - from LA.UM.10.6.2.r1-01600-89xx.0
+system_ext/lib64/com.qualcomm.qti.ant@1.0.so|ed5fa24a93d84833726666206381aa59fc7371c8
+vendor/lib64/hw/com.dsi.ant@1.0-impl.so|713d4c07424068a29875fcf727eef8f15e50d483
 
 # Audio - from LA.UM.9.6.2.r1-04200-89xx.0
 vendor/lib/soundfx/libqcbassboost.so|aee797870096234f1237c6b99819cfceb1a80ecc

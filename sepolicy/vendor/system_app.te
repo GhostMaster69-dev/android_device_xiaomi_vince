@@ -1,3 +1,6 @@
+# Bluetooth
+get_prop(system_app, vendor_bluetooth_prop)
+
 # XiaomiParts
 allow system_app {
     sysfs_hgain

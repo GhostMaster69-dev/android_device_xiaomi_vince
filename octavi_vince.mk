@@ -33,8 +33,7 @@ $(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 # Include Octavi specific sepolicy
 -include device/octavi/sepolicy/qcom/sepolicy.mk
 
-# Custom stuff
-TARGET_FACE_UNLOCK_SUPPORTED := true
+# Charger
 USE_PIXEL_CHARGER := true
 
 # Build Status

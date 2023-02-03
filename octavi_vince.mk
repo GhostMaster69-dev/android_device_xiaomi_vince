@@ -33,9 +33,6 @@ $(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 # Include Octavi specific sepolicy
 -include device/octavi/sepolicy/qcom/sepolicy.mk
 
-# Bootanimation Resolution
-TARGET_BOOT_ANIMATION_RES := 1080
-
 # Custom stuff
 TARGET_FACE_UNLOCK_SUPPORTED := true
 USE_PIXEL_CHARGER := true

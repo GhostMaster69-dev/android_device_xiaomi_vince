@@ -196,12 +196,9 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@2.0.vendor
 
 # Dex preopt
-ifeq ($(WITH_GAPPS),true)
-PRODUCT_DEXPREOPT_SPEED_APPS += NexusLauncherRelease
-else
-PRODUCT_DEXPREOPT_SPEED_APPS += Launcher3QuickStep
-endif
-PRODUCT_DEXPREOPT_SPEED_APPS += Settings
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep \
+    Settings
 
 # DRM
 PRODUCT_PACKAGES += \

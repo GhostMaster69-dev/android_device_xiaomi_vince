@@ -78,9 +78,6 @@ persist.vendor.ims.disableDebugLogs=1
 persist.vendor.ims.disableSigHandler=1
 persist.vendor.ims.disableQXDMLogs=1
 
-# IORap prefetching
-persist.device_config.runtime_native_boot.iorap_readahead_enable=true
-
 # Logs
 persist.log.tag.BoundBrokerSvc=S
 persist.log.tag.GoogleInputMethodService=S

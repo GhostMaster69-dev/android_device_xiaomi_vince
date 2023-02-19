@@ -20,6 +20,8 @@ ro.surface_flinger.supports_background_blur=1
 ro.sf.blurs_are_expensive=1
 
 # Camera
+persist.camera.dual.camera=0
+persist.camera.aux.camera=1
 persist.camera.mct.debug=0
 persist.camera.iface.logs=0
 persist.camera.imglib.logs=0

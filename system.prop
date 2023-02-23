@@ -43,6 +43,7 @@ persist.vendor.data.mode=concurrent
 
 # Display
 debug.hwui.renderer=skiagl
+debug.hwui.use_partial_updates=false
 debug.egl.hw=0
 debug.enable.sglscale=1
 debug.gralloc.enable_fb_ubwc=1

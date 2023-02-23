@@ -89,6 +89,7 @@ persist.log.tag.WindowManager=S
 persist.log.tag.ziparchive=S
 
 # Media
+debug.stagefright.renderengine.backend=threaded
 av.debug.disable.pers.cache=1
 media.aac_51_output_enabled=true
 media.msm8956hw=0

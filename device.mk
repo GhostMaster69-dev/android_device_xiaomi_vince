@@ -89,6 +89,9 @@ PRODUCT_PACKAGES += \
     AntHalService \
     libantradio
 
+# APEX
+PRODUCT_PACKAGES += com.android.apex.cts.shim.v1_prebuilt
+
 # ART
 DONT_DEXPREOPT_PREBUILTS := true
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true

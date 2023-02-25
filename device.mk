@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
     libantradio
 
 # APEX
+PRODUCT_COMPRESSED_APEX := true
 PRODUCT_PACKAGES += com.android.apex.cts.shim.v1_prebuilt
 
 # ART

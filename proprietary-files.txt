@@ -762,7 +762,7 @@ vendor/bin/lowi-server|bd8293d6c884ddbbea880ff06342b5fa5d5b47ae
 vendor/bin/xtra-daemon|ea3029397b6773de7581086c6c3dd83d66406fed
 vendor/bin/xtwifi-client|fa1548098108f7bc8477089d6825c81c9684a43a
 vendor/bin/xtwifi-inet-agent|5a6d6348e92bd2009d8a2825ad47d5fc95bf8e1d
-vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc|d3844699c845ce5de4c8b50548a2095f92dd0235
+vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc|6a70a956838b5070d310acb6cc76181aa1b83be6
 vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml|1c344aacaa6d17a1585ba58b2e6d438dcfe31fad
 vendor/etc/vintf/manifest/vendor.qti.gnss@4.1-service.xml|6fb482367c6ad406ba28efbe73a037fc8ae7b405
 vendor/etc/flp.conf|96a930f9d226016222a084fdaab1da9e9898b3a7

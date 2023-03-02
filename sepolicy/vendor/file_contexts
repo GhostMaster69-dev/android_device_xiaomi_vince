@@ -4,6 +4,9 @@
 # Camera
 /data/vendor/qcam(/.*)?                         u:object_r:vendor_camera_data_file:s0
 
+# Executables
+/(vendor|system/vendor)/bin/subsystem_state_notifier	u:object_r:subsystem_state_notifier_exec:s0
+
 # Fpc Fingerprint
 /data/fpc(/.*)?                                 u:object_r:fpc_data_file:s0
 /dev/socket/fpce(/.*)?                          u:object_r:fpce_socket:s0
@@ -46,6 +49,9 @@
 
 # Sensors
 /(mnt/vendor)/persist/sensors(/.*)?                                     u:object_r:persist_sensors_file:s0
+
+# Subsystems
+/sys/devices(/platform)?/soc/4080000\.qcom,mss/subsys[0-9]/state	u:object_r:sysfs_modem_subsys:s0
 
 # Sys files
 /sys/devices(/platform)?/soc/78b6000\.i2c/i2c-2/2-[0-9a-f]+/leds(/.*)?          u:object_r:sysfs_leds:s0

@@ -36,5 +36,8 @@ vendor.powerhal.		u:object_r:vendor_power_prop:s0
 
 persist.vendor.mwqem.           u:object_r:vendor_mwqem_prop:s0
 
+# Subsystem state notifier
+vendor.subsys_state_notifier.	u:object_r:vendor_subsys_state_notifier_prop:s0
+
 # wlan
 wifi.interface			u:object_r:wifi_hal_prop:s0

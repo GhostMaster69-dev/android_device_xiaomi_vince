@@ -26,3 +26,6 @@ allow vendor_init proc:file w_file_perms;
 
 allow vendor_init proc_dirty:file w_file_perms;
 allow vendor_init proc_dirty_ratio:file w_file_perms;
+
+# Subsystem state notifier
+get_prop(vendor_init, vendor_subsys_state_notifier_prop)

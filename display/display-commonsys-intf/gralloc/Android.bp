@@ -4,6 +4,7 @@ cc_library_shared {
     system_ext_specific: true,
     cflags: [
         "-Wno-sign-conversion",
+        "-Wno-unused-variable",
         "-DLOG_TAG=\"qtigralloc\"",
     ],
     export_include_dirs: ["."],

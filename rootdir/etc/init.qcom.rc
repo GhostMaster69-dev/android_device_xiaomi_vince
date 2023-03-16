@@ -69,12 +69,6 @@ on init
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
-    # Start services for bootanim
-    start surfaceflinger
-    start bootanim
-    start vendor.hwcomposer-2-1
-    start vendor.gralloc-2-0
-
     # Disable sched autogroup
     write /proc/sys/kernel/sched_autogroup_enabled 0
 

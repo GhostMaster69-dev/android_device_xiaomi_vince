@@ -1171,5 +1171,5 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e157937
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|933eb7026797f3dadad3d10fd69443b11f6563f3
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|16baab27397ad493e845515c20ac0c0c063c775d
 
-# Wi-Fi - from LA.UM.9.6.3.r1-06200-89xx.0
-vendor/bin/wcnss_service|4bf3962fa1444caca2d3497e71ae4cd2ba306aa1
+# Wi-Fi - from LA.UM.10.6.2.r1-01600-89xx.0
+vendor/bin/wcnss_service|150eb51feabe6013ad4cbdaf7e012bb772360904

@@ -74,6 +74,7 @@ vendor.audio.feature.vbat.enable=true
 vendor.audio.feature.wsa.enable=true
 
 # Bluetooth
+bluetooth.le.disable_apcf_extended_features=1
 bluetooth.sco.disable_enhanced_connection=1
 persist.vendor.bt.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac

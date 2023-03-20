@@ -866,8 +866,8 @@ vendor/firmware/a530_pfp.fw|35b72dce880191ff087af2524205afce40ea8c97
 vendor/bin/msm_irqbalance|e5706bc0acab394b53fafdc1d7f342f69c6f5649
 vendor/etc/msm_irqbalance.conf|f7d3ff4c1951cc88a9a5f1ac03819e249d129619
 
-# Keystore - from LA.UM.9.6.2.r1-04200-89xx.0
-vendor/lib64/hw/keystore.msm8953.so|0a68ac29004f72237f48008cea188dd98d6c6560
+# Keystore - from LA.UM.10.6.2.r1-01600-89xx.0
+vendor/lib64/hw/keystore.msm8953.so|7d54e81c15620d2bac5aee98ae4a9e629b3a585f
 
 # Listen - from LA.UM.9.6.2.r1-04200-89xx.0
 vendor/lib/libadpcmdec.so|7a38d6b28b27cf663681ad077614a03164418f91

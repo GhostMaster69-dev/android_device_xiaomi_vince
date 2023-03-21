@@ -675,4 +675,7 @@
 
     <!-- True if assistant app should be pinned via Pinner Service -->
     <bool name="config_pinnerAssistantApp">true</bool>
+
+    <!-- Auto-brightness sensor type string -->
+    <string name="config_displayLightSensorType">"android.sensor.light"</string>
 </resources>

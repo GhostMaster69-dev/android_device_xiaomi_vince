@@ -37,7 +37,7 @@ $(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 USE_PIXEL_CHARGER := true
 
 # Build Status
-OCTAVI_BUILD_TYPE := Official
+OCTAVI_BUILD_TYPE := OFFICIAL
 OCTAVI_MAINTAINER := GhostMaster69-dev
 
 # Device identifier. This must come after all inclusions

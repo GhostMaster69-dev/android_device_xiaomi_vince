@@ -1,0 +1,16 @@
+[
+    {
+        "repository":   "kernel_xiaomi_vince",
+        "target_path":  "kernel/xiaomi/vince"
+    },
+    {
+        "repository":   "vendor_xiaomi_vince",
+        "target_path":  "vendor/xiaomi/vince"
+    },
+    {
+        "repository":   "GhostMaster69-dev/cosmic-clang",
+        "remote":       "gitlab",
+        "target_path":  "prebuilts/clang/host/linux-x86/clang-cosmic",
+        "branch":       "master"
+    }
+]

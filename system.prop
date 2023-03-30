@@ -159,7 +159,7 @@ vendor.service.qti.ims.enabled=1
 ro.telephony.default_network=22,22
 
 # Watchdog
-ro.hw_timeout_multiplier=3
+ro.hw_timeout_multiplier=6
 
 # USB
 persist.sys.usb.config.extra=none

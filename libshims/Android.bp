@@ -32,11 +32,3 @@ cc_library_shared {
         "libutils",
     ],
 }
-
-// IMS
-cc_library {
-   name: "libims-shim",
-   shared_libs: ["libgui","libutils"],
-   srcs: ["GraphicBufferProducer.cpp","SurfaceComposerClient.cpp"],
-   system_ext_specific: true,
-}

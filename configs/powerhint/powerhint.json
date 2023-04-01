@@ -246,7 +246,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "510000000"
+      "Value": "650000000"
     },
     {
       "PowerHint": "INTERACTION",
@@ -270,7 +270,7 @@
       "PowerHint": "LAUNCH",
       "Node": "CPUClusterMinFreq",
       "Duration": 2000,
-      "Value": "1804800"
+      "Value": "2016000"
     },
     {
       "PowerHint": "LAUNCH",
@@ -318,7 +318,7 @@
       "PowerHint": "LAUNCH",
       "Node": "GPUIdleTimer",
       "Duration": 2000,
-      "Value": "10000"
+      "Value": "80"
     },
     {
       "PowerHint": "AUDIO_LAUNCH",
@@ -354,7 +354,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "560000000"
+      "Value": "650000000"
     },
     {
       "PowerHint": "LOW_POWER",

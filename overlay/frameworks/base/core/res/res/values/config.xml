@@ -476,6 +476,7 @@
         <item>"/system/lib/libGLESv3.so"</item>
         <item>"/system/lib/libgui.so"</item>
         <item>"/system/lib/libhwui.so"</item>
+        <item>"/system/lib/libjnigraphics.so"</item>
         <item>"/system/lib/libui.so"</item>
         <item>"/system/lib/libvulkan.so"</item>
         <item>"/system/lib64/libEGL.so"</item>
@@ -484,6 +485,7 @@
         <item>"/system/lib64/libGLESv3.so"</item>
         <item>"/system/lib64/libgui.so"</item>
         <item>"/system/lib64/libhwui.so"</item>
+        <item>"/system/lib64/libjnigraphics.so"</item>
         <item>"/system/lib64/libui.so"</item>
         <item>"/system/lib64/libvulkan.so"</item>
         <item>"/vendor/lib/egl/eglSubDriverAndroid.so"</item>

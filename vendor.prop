@@ -168,6 +168,7 @@ ro.vendor.extension_library=libqti-perfd-client.so
 
 # Radio
 persist.radio.multisim.config=dsds
+persist.sys.radio.force_lte_ca=true
 persist.vendor.data.iwlan.enable=true
 persist.vendor.radio.add_power_save=1
 persist.vendor.radio.aosp_usr_pref_sel=true

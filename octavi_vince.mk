@@ -51,8 +51,10 @@ PRODUCT_SYSTEM_NAME := vince
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_VERSION_TAGS=release-keys \
     PRIVATE_BUILD_DESC="vince-user $(PLATFORM_VERSION) $(BUILD_ID) $(shell date -u +%s) release-keys" \
-    TARGET_BUILD_FLAVOR=vince-$(TARGET_BUILD_VARIANT) \
+    TARGET_BUILD_FLAVOR=vince-user \
+    TARGET_BUILD_TYPE=user \
     TARGET_PRODUCT=vince
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop

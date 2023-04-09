@@ -19,11 +19,6 @@ allow system_server camera_prop:file { open read getattr };
 allow system_server exported_camera_prop:file { read };
 allow system_server mm-qcamerad:binder { call };
 
-# Touch Panel
-allow system_server proc_touchpanel:dir search;
-allow system_server proc_touchpanel:file rw_file_perms;
-allow system_server proc_touchpanel:lnk_file read;
-
 # Vibrator
 allow system_server sysfs_vibrator:file read;
 

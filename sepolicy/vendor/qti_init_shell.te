@@ -3,9 +3,6 @@ dontaudit qti_init_shell self:capability dac_override;
 allow qti_init_shell proc_sysctl_autogroup:file w_file_perms;
 allow qti_init_shell proc_sysctl_schedboost:file w_file_perms;
 
-allow qti_init_shell proc_touchpanel:dir { r_dir_perms setattr };
-allow qti_init_shell proc_touchpanel:file { getattr setattr };
-
 # Allow access to swappiness
 allow qti_init_shell proc_swap:file { open write };
 
@@ -22,8 +19,6 @@ allow qti_init_shell ctl_start_prop:property_service set;
 allow qti_init_shell fpc_sysfs:dir setattr;
 allow qti_init_shell fpc_sysfs:file setattr;
 allow qti_init_shell mnt_vendor_file:dir rmdir;
-allow qti_init_shell proc_touchpanel:dir { r_dir_perms setattr };
-allow qti_init_shell proc_touchpanel:file { getattr setattr };
 allow qti_init_shell qti_init_shell:capability { kill };
 allow qti_init_shell system_data_file:dir { getattr open read remove_name rmdir write };
 allow qti_init_shell system_data_file:file { getattr };

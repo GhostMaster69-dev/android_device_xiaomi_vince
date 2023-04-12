@@ -22,7 +22,6 @@ dalvik.vm.dex2oat-minidebuginfo=false
 dalvik.vm.minidebuginfo=false
 
 # Audio
-audio.deep_buffer.media=true
 audio.offload.min.duration.secs=30
 audio.offload.video=true
 persist.vendor.audio.fluence.speaker=false

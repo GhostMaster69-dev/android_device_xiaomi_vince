@@ -93,6 +93,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COMPRESSED_APEX := true
 PRODUCT_PACKAGES += com.android.apex.cts.shim.v1_prebuilt
 
+# Aperture Camera
+PRODUCT_PACKAGES += Aperture
+
 # ART
 DONT_DEXPREOPT_PREBUILTS := true
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
@@ -173,8 +176,7 @@ PRODUCT_PACKAGES += \
     camera.msm8953 \
     libcamshim \
     libmm-qcamera \
-    libdng_sdk.vendor \
-    GrapheneCamera
+    libdng_sdk.vendor
 
 # Disable configstore
 PRODUCT_PACKAGES += \

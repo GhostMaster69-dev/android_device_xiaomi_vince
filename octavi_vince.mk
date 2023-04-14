@@ -27,9 +27,6 @@ $(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 # Include Octavi specific sepolicy
 -include device/octavi/sepolicy/qcom/sepolicy.mk
 
-# Charger
-USE_PIXEL_CHARGER := true
-
 # Build Status
 OCTAVI_BUILD_TYPE := OFFICIAL
 OCTAVI_MAINTAINER := GhostMaster69-dev

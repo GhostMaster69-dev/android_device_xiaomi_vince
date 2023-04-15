@@ -36,6 +36,9 @@ ARROW_GAPPS := true
 PRODUCT_PACKAGES += RemovePackages
 endif
 
+# Boot Animation
+TARGET_BOOT_ANIMATION_RES := 1080
+
 # Pixel Charger
 TARGET_INCLUDE_PIXEL_CHARGER := true
 

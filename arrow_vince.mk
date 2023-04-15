@@ -36,6 +36,9 @@ ARROW_GAPPS := true
 PRODUCT_PACKAGES += RemovePackages
 endif
 
+# Pixel Charger
+TARGET_INCLUDE_PIXEL_CHARGER := true
+
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := xiaomi
 PRODUCT_DEVICE := vince

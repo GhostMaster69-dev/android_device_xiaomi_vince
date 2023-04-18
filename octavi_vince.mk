@@ -31,6 +31,13 @@ $(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 OCTAVI_BUILD_TYPE := OFFICIAL
 OCTAVI_MAINTAINER := GhostMaster69-dev
 
+# Gapps
+ifneq ($(TARGET_WITH_MINI_GAPPS), false)
+USE_GAPPS := true
+WITH_GAPPS := true
+PRODUCT_PACKAGES += RemovePackages
+endif
+
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := xiaomi
 PRODUCT_DEVICE := vince

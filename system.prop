@@ -157,6 +157,7 @@ debug.sf.earlyGl.app.duration=9500000
 debug.sf.disable_client_composition_cache=1
 debug.sf.enable_transaction_tracing=false
 debug.sf.predict_hwc_composition_strategy=0
+ro.surface_flinger.enable_layer_caching=true
 
 # Time
 persist.backup.ntpServer=0.pool.ntp.org

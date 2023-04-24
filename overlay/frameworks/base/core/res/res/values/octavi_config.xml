@@ -26,6 +26,7 @@
         <item>com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver</item>
 	<item>com.google.android.gms/.stats.service.DropBoxEntryAddedReceiver</item>
 	<item>com.google.android.gms/com.google.android.gms.chimera.GmsIntentOperationService$GmsExternalReceiver</item>
+	<item>com.google.android.gms/com.google.android.gms.update.OtaSuggestionSummaryProvider</item>
     </string-array>
 
     <!-- Does the battery LED support multiple colors?

@@ -29,4 +29,9 @@
     -->
     <integer name="config_vibration_supported_intensity_levels">3</integer>
 
+    <!-- Fully-qualified class name for the styles & wallpaper picker activity. -->
+    <string name="config_wallpaper_picker_action" translatable="false">android.intent.action.MAIN</string>
+
+    <!-- Action name for the styles & wallpaper picker activity. -->
+    <string name="config_styles_and_wallpaper_picker_action" translatable="false">android.intent.action.MAIN</string>
 </resources>

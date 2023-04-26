@@ -30,6 +30,9 @@ $(call inherit-product, vendor/arrow/config/common.mk)
 # Maintainer
 DEVICE_MAINTAINER := GhostMaster69-dev
 
+# Arrow Beta tag
+ARROW_BETA := true
+
 # Gapps
 ifneq ($(TARGET_WITH_MINI_GAPPS), false)
 ARROW_GAPPS := true

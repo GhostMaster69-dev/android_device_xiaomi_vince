@@ -40,4 +40,7 @@
         <item>Redmi 5 Plus</item>
         <item>xiaomi/vince/vince:7.1.2/N2G47H/V9.2.3.0.NEGMIEK:user/release-keys</item>
     </string-array>
+
+    <!-- Whether to spoof device as Pixel XL for Google Photos -->
+    <bool name="config_spoofGooglePhotos">false</bool>
 </resources>

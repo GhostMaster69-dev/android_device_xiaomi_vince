@@ -32,4 +32,12 @@
 
     <!-- Build fingerprint from the stock ROM -->
     <string name="config_stockFingerprint" translatable="false">xiaomi/vince/vince:7.1.2/N2G47H/V9.2.3.0.NEGMIEK:user/release-keys</string>
+
+    <!-- Build properties from a GMS certified device against current platform SPL level -->
+    <string-array name="config_certifiedBuildProperties" translatable="false">
+        <item>vince</item>
+        <item>vince</item>
+        <item>Redmi 5 Plus</item>
+        <item>xiaomi/vince/vince:7.1.2/N2G47H/V9.2.3.0.NEGMIEK:user/release-keys</item>
+    </string-array>
 </resources>

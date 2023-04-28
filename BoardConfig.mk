@@ -52,6 +52,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/vince
 TARGET_KERNEL_VERSION := 4.9
 TARGET_KERNEL_CONFIG := vince-perf_defconfig
 TARGET_KERNEL_CLANG_VERSION := cosmic
+TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang/clang-$(TARGET_KERNEL_CLANG_VERSION)
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
 
 # ANT

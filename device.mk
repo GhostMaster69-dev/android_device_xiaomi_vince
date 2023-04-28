@@ -204,6 +204,10 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep \
     Settings
 
+# Doze
+PRODUCT_PACKAGES += \
+    ParanoidDoze
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \

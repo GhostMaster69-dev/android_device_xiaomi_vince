@@ -133,6 +133,11 @@ ro.vendor.qti.va_aosp.support=1
 persist.radio.aosp_usr_pref_sel=true
 persist.rcs.supported=1
 
+# Sensor
+ro.sensor.pickup=xiaomi.sensor.pickup
+ro.sensor.pickup.lower.value=2
+ro.sensor.proximity=true
+
 # SurfaceFlinger
 debug.sf.use_phase_offsets_as_durations=1
 debug.sf.late.sf.duration=10500000

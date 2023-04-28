@@ -29,4 +29,7 @@
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>
+
+    <!-- Build fingerprint from the stock ROM -->
+    <string name="config_stockFingerprint" translatable="false">xiaomi/vince/vince:7.1.2/N2G47H/V9.2.3.0.NEGMIEK:user/release-keys</string>
 </resources>

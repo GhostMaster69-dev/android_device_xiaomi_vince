@@ -23,6 +23,6 @@ android_app {
         "androidx.core_core",
         "androidx.preference_preference",
         "SettingsLib",
-        "co.aospa.resources",
+        "org.lineageos.settings.resources",
     ],
 }

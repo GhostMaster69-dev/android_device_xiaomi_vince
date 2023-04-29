@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2015-2016 The CyanogenMod Project
- *               2017 The LineageOS Project
+ * Copyright (C) 2015 The CyanogenMod Project
+ *               2017-2019 The LineageOS Project
  *               2020 Paranoid Android
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,22 +16,23 @@
  * limitations under the License.
  */
 
-package co.aospa.doze;
+package com.xiaomi.doze;
 
-import android.os.Bundle;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
-import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import com.android.settingslib.widget.R;
+import com.xiaomi.doze.DozeUtils;
 
-public class DozeSettingsActivity extends CollapsingToolbarBaseActivity {
+public class BootCompletedReceiver extends BroadcastReceiver {
 
-    private static final String TAG_DOZE = "doze";
+    private static final boolean DEBUG = false;
+    private static final String TAG = "XiaomiDoze";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        getFragmentManager().beginTransaction().replace(R.id.content_frame,
-                new DozeSettingsFragment(), TAG_DOZE).commit();
+    public void onReceive(final Context context, Intent intent) {
+        if (DEBUG) Log.d(TAG, "Received boot completed intent");
+        DozeUtils.checkDozeService(context);
     }
 }

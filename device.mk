@@ -206,7 +206,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    ParanoidDoze
+    XiaomiDoze
 
 # DRM
 PRODUCT_PACKAGES += \

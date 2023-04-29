@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package co.aospa.doze;
+package com.xiaomi.doze;
 
 import android.content.Context;
 import android.hardware.Sensor;

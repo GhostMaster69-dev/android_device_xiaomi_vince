@@ -21,6 +21,6 @@
     <string name="summary_empty" translatable="false"></string>
 
     <!-- App Name -->
-    <string name="doze_settings_app_name">Paranoid Doze</string>
+    <string name="doze_settings_app_name">Xiaomi Doze</string>
 
 </resources>

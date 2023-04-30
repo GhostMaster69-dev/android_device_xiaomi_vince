@@ -10,5 +10,5 @@
     <dimen name="rounded_corner_radius">20dp</dimen>
 
     <!-- Default paddings for content around the corners. -->
-    <dimen name="rounded_corner_content_padding">10dp</dimen>
+    <dimen name="rounded_corner_content_padding">4dp</dimen>
 </resources>

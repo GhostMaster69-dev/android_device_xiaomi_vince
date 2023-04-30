@@ -275,7 +275,7 @@ PRODUCT_COPY_FILES += \
 
 # Google Photos Unlimited Storage
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
+    $(LOCAL_PATH)/configs/sysconfig/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml
 
 # Google WellBeing
 PRODUCT_COPY_FILES += \

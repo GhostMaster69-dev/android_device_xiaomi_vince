@@ -815,8 +815,8 @@ else
         echo 7680 > /sys/module/process_reclaim/parameters/tsk_nomap_swap_sz
     fi
 
-    # Set swappiness to 100 for all targets
-    echo 100 > /proc/sys/vm/swappiness
+    # Set swappiness for all targets
+    echo 50 > /proc/sys/vm/swappiness
 
     # Disable wsf for all targets beacause we are using efk.
     # wsf Range : 1..1000 So set to bare minimum value 1.

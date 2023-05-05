@@ -541,9 +541,6 @@
     <!-- Maximum velocity to initiate a fling, as measured in dips per second. -->
     <dimen name="config_viewMaxFlingVelocity">21000dp</dimen>
 
-    <!-- Determines whether the shell features all run on another thread. -->
-    <bool name="config_enableShellMainThread">true</bool>
-
     <!-- Feature flag to store TaskSnapshot in 16 bit pixel format to save memory. -->
     <bool name="config_use16BitTaskSnapshotPixelFormat">true</bool>
 

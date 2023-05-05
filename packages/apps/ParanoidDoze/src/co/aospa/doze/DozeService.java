@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.xiaomi.doze;
+package co.aospa.doze;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

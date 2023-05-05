@@ -13,9 +13,9 @@
 // limitations under the License.
 
 android_app {
-    name: "XiaomiDoze",
+    name: "ParanoidDoze",
     certificate: "platform",
-    srcs: ["src/com/xiaomi/doze/*.java"],
+    srcs: ["src/**/*.java"],
     platform_apis: true,
     privileged: true,
     system_ext_specific: true,

@@ -761,12 +761,6 @@ vendor/bin/xtwifi-inet-agent|5a6d6348e92bd2009d8a2825ad47d5fc95bf8e1d
 vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc|6a70a956838b5070d310acb6cc76181aa1b83be6
 vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml|1c344aacaa6d17a1585ba58b2e6d438dcfe31fad
 vendor/etc/vintf/manifest/vendor.qti.gnss@4.1-service.xml|6fb482367c6ad406ba28efbe73a037fc8ae7b405
-vendor/etc/flp.conf|96a930f9d226016222a084fdaab1da9e9898b3a7
-vendor/etc/gnss_antenna_info.conf|4f436d32bf096bd9251602e08c64e357ee709bad
-vendor/etc/izat.conf|616979f89d289b337474aeeac5652339438d3d0f
-vendor/etc/lowi.conf|470aed0a76a78af57e7b9f2bcc4764f5e909513b
-vendor/etc/sap.conf|04da0fc9d8b41d27b38bd6465ce184004a71273c
-vendor/etc/xtwifi.conf|ca3517f100be4e331f4e96919378486385cdb6e5
 vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so|2cf2ebaf060edb093277d3cd8c13b0575b960109
 vendor/lib64/hw/vendor.qti.gnss@4.1-impl.so|25f9e8993252914477e9e68edabf674251d7ebd0
 vendor/lib64/libbatching.so|32e64d5bf92e0a11d59333cac7777e18df6320ef

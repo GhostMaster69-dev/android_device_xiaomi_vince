@@ -68,10 +68,6 @@ on early-boot
 
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
 
-    # Workaround for cache
-    rm /data/resource-cache
-    rm /data/system/package_cache
-
     # Graphics
     chown system graphics /sys/class/graphics/fb0/idle_time
     chmod 0664 /sys/class/graphics/fb0/idle_time

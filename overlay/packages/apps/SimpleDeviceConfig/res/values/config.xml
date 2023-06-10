@@ -42,5 +42,7 @@
         <item>privacy/discrete_history_ops_cslist=0,109,1,108,26,101,27,102,106,100,8,9,6,7,4,5,62,59,60,90,77,111,114,112,51,65,13,6,7,52,53,54,69,74,79,113,20,16,14,19,18,57</item>
 	<!-- Globally enable the new photo picker -->
 	<item>storage_native_boot/take_over_get_content=true</item>
+	<!-- Enable protected by android banner -->
+	<item>privacy/safety_protection_enabled=true</item>
     </string-array>
 </resources>

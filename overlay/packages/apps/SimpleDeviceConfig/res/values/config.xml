@@ -15,8 +15,6 @@
     <string-array name="configs_device">
         <!-- ART heap compaction for cached apps -->
         <item>activity_manager/use_compaction=true</item>
-        <!-- Allow more cached apps in the background -->
-        <item>activity_manager/max_cached_processes=64</item>
 	<!-- Use new privacy indicators for location -->
 	<item>privacy/location_indicators_enabled=true</item>
 	<!-- Allow users to disable location indicators in Developer Options -->

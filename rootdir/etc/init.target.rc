@@ -189,10 +189,21 @@ service ppd /vendor/bin/mm-pp-dpps
     disabled
 
 on boot
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/top-app/mems 0
+    write /dev/cpuset/foreground/cpus 0-6
+    write /dev/cpuset/foreground/mems 0
+    write /dev/cpuset/background/cpus 0-1
+    write /dev/cpuset/background/mems 0
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/system-background/mems 0
+    write /dev/cpuset/restricted/cpus 0-3
+    write /dev/cpuset/restricted/mems 0
+
 # Add a cpuset for the camera daemon
 # We want all cores for camera
     mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/cpus 0-6
     write /dev/cpuset/camera-daemon/mems 0
     chown cameraserver cameraserver /dev/cpuset/camera-daemon
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks

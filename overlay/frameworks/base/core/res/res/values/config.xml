@@ -632,4 +632,10 @@
        <item>com.android.vending</item>
        <item>com.google.android.gms</item>
    </string-array>
+
+   <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
+   <integer-array name="config_availableColorModes">
+       <item>0</item> <!-- COLOR_MODE_NATURAL -->
+       <item>1</item> <!-- COLOR_MODE_BOOSTED -->
+   </integer-array>
 </resources>

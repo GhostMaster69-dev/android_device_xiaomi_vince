@@ -638,4 +638,7 @@
        <item>0</item> <!-- COLOR_MODE_NATURAL -->
        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
    </integer-array>
+
+   <!-- Default component for QR code scanner -->
+   <string name="config_defaultQrCodeComponent">app.grapheneos.camera/app.grapheneos.camera.ui.activities.QrTile</string>
 </resources>

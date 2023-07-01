@@ -632,4 +632,7 @@
        <item>com.android.vending</item>
        <item>com.google.android.gms</item>
    </string-array>
+
+   <!-- Default component for QR code scanner -->
+   <string name="config_defaultQrCodeComponent">app.grapheneos.camera/app.grapheneos.camera.ui.activities.QrTile</string>
 </resources>

@@ -13,5 +13,7 @@
 
 <resources>
     <string-array name="configs_device">
+        <!-- Globally enable the new photo picker -->
+	<item>storage_native_boot/take_over_get_content=true</item>
     </string-array>
 </resources>

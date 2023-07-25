@@ -34,7 +34,7 @@ OCTAVI_MAINTAINER := GhostMaster69-dev
 # Gapps
 WITH_GAPPS := true
 ifneq ($(WITH_GAPPS), false)
-PRODUCT_PACKAGES += RemovePackages
+PRODUCT_PACKAGES += RemovePackages GoogleDialer
 endif
 
 # Device identifier. This must come after all inclusions

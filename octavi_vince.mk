@@ -32,9 +32,8 @@ OCTAVI_BUILD_TYPE := OFFICIAL
 OCTAVI_MAINTAINER := GhostMaster69-dev
 
 # Gapps
-ifneq ($(TARGET_WITH_MINI_GAPPS), false)
-USE_GAPPS := true
 WITH_GAPPS := true
+ifneq ($(WITH_GAPPS), false)
 PRODUCT_PACKAGES += RemovePackages
 endif
 

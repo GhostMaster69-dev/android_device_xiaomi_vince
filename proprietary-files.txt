@@ -1173,3 +1173,9 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|16baab27397ad493e845515c20ac0c0
 
 # Wi-Fi - from LA.UM.10.6.2.r1-01600-89xx.0
 vendor/bin/wcnss_service|150eb51feabe6013ad4cbdaf7e012bb772360904
+
+# Wlan prima firmware - from vince-user-8.1.0-OPM1.171019.019-V10.0.4.0.OEGMIFH-release-keys
+vendor/firmware/wlan/prima/WCNSS_cfg.dat|1672af1c3d4f04804f31d4b79a6e59ea4a8b1926
+vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin|ec1c2269f3a4c8ed4811da44d5d88520e2bf270c
+vendor/firmware/wlan/prima/WCNSS_wlan_dictionary.dat|50acb5731240e68aedbe173fe3113b51208480fe
+vendor/firmware/wlan/prima/wlan_mac.bin|0874bedf53738d5354ac3b7f9eec9f207f907d91

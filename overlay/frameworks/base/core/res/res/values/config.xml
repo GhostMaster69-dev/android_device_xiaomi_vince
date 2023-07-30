@@ -641,4 +641,7 @@
        <item>0</item> <!-- COLOR_MODE_NATURAL -->
        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
    </integer-array>
+
+   <!-- System settings intelligence package name -->
+   <string name="config_systemSettingsIntelligence" translatable="false">com.google.android.settings.intelligence</string>
 </resources>

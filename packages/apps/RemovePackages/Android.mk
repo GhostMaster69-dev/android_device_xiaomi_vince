@@ -7,7 +7,7 @@ LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := /dev/null
 LOCAL_CERTIFICATE := PRESIGNED
-LOCAL_OVERRIDES_PACKAGES := AndroidAutoStub CalculatorGooglePrebuilt CalendarGooglePrebuilt Drive GoogleFeedback GooglePrintRecommendationService GoogleTTS Maps Photos PrebuiltDeskClockGoogle PrebuiltGmail TagGoogle talkback Velvet YouTube
+LOCAL_OVERRIDES_PACKAGES := AndroidAutoStubPrebuilt CalculatorGooglePrebuilt CalendarGooglePrebuilt GoogleFeedback GooglePrintRecommendationService GoogleTTS Photos PrebuiltDeskClockGoogle ScribePrebuilt TagGoogle talkback Velvet
 LOCAL_UNINSTALLABLE_MODULE := true
 
 include $(BUILD_PREBUILT)

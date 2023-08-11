@@ -108,6 +108,9 @@ TARGET_COPY_OUT_SYSTEM_EXT := system/system_ext
 TARGET_COPY_OUT_PRODUCT := system/product
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
+# Flipendo sepolicy
+BOARD_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/flipendo
+
 # FM
 BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true

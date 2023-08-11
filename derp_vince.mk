@@ -27,9 +27,6 @@ $(call inherit-product, vendor/derp/config/common_full_phone.mk)
 # Include DerpFest specific sepolicy
 -include device/derp/sepolicy/qcom/sepolicy.mk
 
-# Boot Animation
-USE_LEGACY_BOOTANIMATION := true
-
 # Pixel customization
 TARGET_SUPPORTS_GOOGLE_RECORDER := false
 

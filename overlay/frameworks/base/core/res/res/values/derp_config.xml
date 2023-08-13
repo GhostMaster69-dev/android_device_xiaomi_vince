@@ -58,4 +58,10 @@
     <!-- Default state for LiveDisplay -->
     <bool name="config_liveDisplayAvailable">false</bool>
     <bool name="config_enableLiveDisplay">false</bool>
+
+    <!-- Define device configs on boot -->
+    <string-array name="device_configs_override" translatable="false">
+	<!-- Enable the new and advanced Privacy Hub -->
+	<item>privacy/safety_center_is_enabled=true</item>
+    </string-array>
 </resources>

@@ -179,9 +179,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += GrapheneCamera
 
-# Disable configstore
+# Configstore
 PRODUCT_PACKAGES += \
-    disable_configstore
+    android.hardware.configstore@1.1-service
 
 # Display
 PRODUCT_PACKAGES += \

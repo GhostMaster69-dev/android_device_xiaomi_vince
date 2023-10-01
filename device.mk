@@ -289,11 +289,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gpfspath_oem_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gpfspath_oem_config.xml
 
-# Healthd
+# Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl:64 \
-    android.hardware.health@2.1-impl.recovery \
-    android.hardware.health@2.1-service
+    android.hardware.health-service.qti \
+    android.hardware.health-service.qti_recovery
 
 # HIDL
 PRODUCT_PACKAGES += \

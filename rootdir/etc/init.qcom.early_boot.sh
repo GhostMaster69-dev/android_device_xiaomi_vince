@@ -494,8 +494,3 @@ if [ -f /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies ]; then
     gpu_freq=`cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies` 2> /dev/null
     setprop vendor.gpu.available_frequencies "$gpu_freq"
 fi
-
-# Disable GMS components
-pm disable com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
-pm disable com.google.android.gms/com.google.android.gms.chimera.GmsIntentOperationService
-pm disable com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver

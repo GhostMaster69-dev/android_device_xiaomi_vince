@@ -70,7 +70,3 @@ case "$buildvariant" in
         echo "4 4 1 4" > /proc/sys/kernel/printk
         ;;
 esac
-
-# Remove system app and resource cache, avoids derps after dirty flash
-rm -rf /data/resource-cache
-rm -rf /data/system/package_cache

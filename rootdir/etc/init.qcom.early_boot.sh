@@ -499,3 +499,7 @@ fi
 pm disable com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
 pm disable com.google.android.gms/com.google.android.gms.chimera.GmsIntentOperationService
 pm disable com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
+
+# Remove system app and resource cache, avoids derps after dirty flash
+rm -rRf /data/resource-cache
+rm -rRf /data/system/package_cache

@@ -1,31 +1,22 @@
 {
   "Nodes": [
     {
-      "Name": "CPUClusterMaxFreq",
+      "Name": "CPUMaxFreq",
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
       "Values": [
-        "2016000",
-        "1958400",
-        "1804800",
-        "1689600",
-        "1401600",
-        "1036800",
-        "652800"
+        "9999999"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
-      "Name": "CPUClusterMinFreq",
+      "Name": "CPUMinFreq",
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
       "Values": [
-        "2016000",
-        "1958400",
-        "1804800",
+        "9999999",
         "1689600",
-        "1401600",
         "1036800",
-        "652800"
+        "0"
       ],
       "ResetOnInit": true
     },
@@ -193,6 +184,15 @@
       "HoldFd": true
     },
     {
+      "Name": "SchedBoost",
+      "Path": "/proc/sys/kernel/sched_boost",
+      "Values": [
+        "1",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "KernelBatterySaver",
       "Path": "/sys/module/battery_saver/parameters/enabled",
       "Values": [
@@ -238,9 +238,9 @@
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
-      "Node": "CPUClusterMaxFreq",
+      "Node": "CPUMaxFreq",
       "Duration": 0,
-      "Value": "2016000"
+      "Value": "9999999"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
@@ -250,86 +250,104 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "CPUClusterMinFreq",
-      "Duration": 1000,
-      "Value": "1036800"
+      "Node": "CPUMinFreq",
+      "Duration": 1500,
+      "Value": "1689600"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "TASchedtuneBoost",
-      "Duration": 1000,
-      "Value": "10"
+      "Duration": 1500,
+      "Value": "15"
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "CPUClusterMaxFreq",
-      "Duration": 2000,
-      "Value": "2016000"
+      "Node": "CPUMaxFreq",
+      "Duration": 3000,
+      "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "CPUClusterMinFreq",
-      "Duration": 2000,
-      "Value": "2016000"
+      "Node": "CPUMinFreq",
+      "Duration": 3000,
+      "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "67"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBWHystTriggerCount",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBWHystLength",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBWHistMemory",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBWMinFreq",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "7104"
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "SchedBoost",
+      "Duration": 3000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUMaxFreq",
+      "Duration": 3000,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUMinFreq",
+      "Duration": 3000,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "GPUForceClkOn",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUForceRailOn",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUIdleTimer",
-      "Duration": 2000,
-      "Value": "80"
+      "Duration": 3000,
+      "Value": "10000"
     },
     {
       "PowerHint": "AUDIO_LAUNCH",
-      "Node": "CPUClusterMinFreq",
-      "Duration": 2000,
+      "Node": "CPUMinFreq",
+      "Duration": 3000,
       "Value": "1036800"
     },
     {
       "PowerHint": "AUDIO_LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "67"
     },
     {
@@ -349,6 +367,12 @@
       "Node": "PowerHALRenderingState",
       "Duration": 0,
       "Value": "EXPENSIVE_RENDERING"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "GPUMaxFreq",
+      "Duration": 0,
+      "Value": "650000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
